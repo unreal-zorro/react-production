@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    // куда произв. сборка
+    "outDir": "./dist/",
+    // нельзя использ. пер. без явного указ. типа
+    "noImplicitAny": true,
+    // modules
+    "module": "esNext",
+    // куда компилировать
+    "target": "es5",
+    // jsx как в react
+    "jsx": "react-jsx",
+    // js and ts
+    "allowJs": true,
+    // разреш. модулей
+    "moduleResolution": "node",
+    // Базовый url для абсолютного импорта
+    "baseUrl": ".",
+    // common js -> esm
+    "esModuleInterop": true,
+    // * as ... -> ...
+    "allowSyntheticDefaultImports": true
+  },
+  // чтобы работал esnext в webpack.config.ts
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
