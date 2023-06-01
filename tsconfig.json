@@ -16,6 +16,9 @@
     "moduleResolution": "node",
     // Базовый url для абсолютного импорта
     "baseUrl": ".",
+    "paths": {
+      "*": ["./src/*"]
+    },
     // common js -> esm
     "esModuleInterop": true,
     // * as ... -> ...
