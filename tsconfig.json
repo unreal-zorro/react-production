@@ -22,7 +22,9 @@
     // common js -> esm
     "esModuleInterop": true,
     // * as ... -> ...
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    // Делает обработку null и undefined более явной
+    "strictNullChecks": true
   },
   // чтобы работал esnext в webpack.config.ts
   "ts-node": {
