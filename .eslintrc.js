@@ -1,12 +1,14 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
+    jest: true
   },
   extends: [
     'standard-with-typescript',
     'plugin:react/recommended',
-    'plugin:react/jsx-runtime'
+    'plugin:react/jsx-runtime',
+    'plugin:i18next/recommended'
   ],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -17,7 +19,8 @@ module.exports = {
     }
   },
   plugins: [
-    'react'
+    'react',
+    'i18next'
   ],
   rules: {
     'react/jsx-uses-react': 'error',
@@ -26,7 +29,10 @@ module.exports = {
     'react/jsx-indent': [2, 2],
     'react/jsx-indent-props': [2, 2],
     indent: [2, 2],
-    'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+    'react/jsx-filename-extension': [
+      2,
+      { extensions: ['.js', '.jsx', '.tsx'] }
+    ],
     'import/no-unresolved': 'off',
     semi: ['error', 'always'],
     '@typescript-eslint/semi': ['error', 'always'],
@@ -55,7 +61,9 @@ module.exports = {
     'no-underscore-dangle': 'off',
     '@typescript-eslint/naming-convention': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
-    '@typescript-eslint/strict-boolean-expressions': 'off'
+    '@typescript-eslint/strict-boolean-expressions': 'off',
+    'i18next/no-literal-string': ['error', { markupOnly: true }],
+    'max-len': ['error', { ignoreComments: true, code: 120 }]
   },
   overrides: [
     {
