@@ -62,7 +62,13 @@ module.exports = {
     '@typescript-eslint/naming-convention': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
-    'i18next/no-literal-string': ['error', { markupOnly: true }],
+    'i18next/no-literal-string': [
+      'error',
+      {
+        markupOnly: true,
+        ignoreAttributes: ['data-testid']
+      }
+    ],
     'max-len': ['error', { ignoreComments: true, code: 120 }]
   },
   overrides: [
@@ -70,6 +76,12 @@ module.exports = {
       files: ['*.jsx', '*.tsx'],
       rules: {
         '@typescript-eslint/explicit-module-boundary-types': ['off']
+      }
+    },
+    {
+      files: ['**/src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off'
       }
     }
   ],
