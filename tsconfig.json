@@ -34,8 +34,11 @@
   },
   // Массив имён файлов или шаблонов для включения в программу
   "include": [
-//    "./config/jest/setupTests.ts",
-    "config/jest/**/*",
-    "src/**/*"
+    "*.ts",
+    "*.tsx",
+    "config/**/*.ts",
+    "config/**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
   ]
 }

@@ -4,12 +4,7 @@ module.exports = {
     es2021: true,
     jest: true
   },
-  extends: [
-    'standard-with-typescript',
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-    'plugin:i18next/recommended'
-  ],
+  extends: ['standard-with-typescript', 'plugin:react/recommended', 'plugin:react/jsx-runtime', 'plugin:i18next/recommended', 'plugin:storybook/recommended'],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -18,10 +13,7 @@ module.exports = {
       jsx: true
     }
   },
-  plugins: [
-    'react',
-    'i18next'
-  ],
+  plugins: ['react', 'i18next'],
   rules: {
     'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error',
@@ -29,26 +21,23 @@ module.exports = {
     'react/jsx-indent': [2, 2],
     'react/jsx-indent-props': [2, 2],
     indent: [2, 2],
-    'react/jsx-filename-extension': [
-      2,
-      { extensions: ['.js', '.jsx', '.tsx'] }
-    ],
+    'react/jsx-filename-extension': [2, {
+      extensions: ['.js', '.jsx', '.tsx']
+    }],
     'import/no-unresolved': 'off',
     semi: ['error', 'always'],
     '@typescript-eslint/semi': ['error', 'always'],
-    '@typescript-eslint/member-delimiter-style': [
-      'error', {
-        multiline: {
-          delimiter: 'semi',
-          requireLast: true
-        },
-        singleline: {
-          delimiter: 'semi',
-          requireLast: false
-        },
-        multilineDetection: 'brackets'
-      }
-    ],
+    '@typescript-eslint/member-delimiter-style': ['error', {
+      multiline: {
+        delimiter: 'semi',
+        requireLast: true
+      },
+      singleline: {
+        delimiter: 'semi',
+        requireLast: false
+      },
+      multilineDetection: 'brackets'
+    }],
     'import/prefer-default-export': 'off',
     'no-unused-vars': 'warn',
     'react/require-default-props': 'off',
@@ -62,29 +51,26 @@ module.exports = {
     '@typescript-eslint/naming-convention': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
-    'i18next/no-literal-string': [
-      'error',
-      {
-        markupOnly: true,
-        ignoreAttributes: ['data-testid']
-      }
-    ],
-    'max-len': ['error', { ignoreComments: true, code: 120 }]
+    'i18next/no-literal-string': ['error', {
+      markupOnly: true,
+      ignoreAttributes: ['data-testid', 'to']
+    }],
+    'max-len': ['error', {
+      ignoreComments: true,
+      code: 120
+    }]
   },
-  overrides: [
-    {
-      files: ['*.jsx', '*.tsx'],
-      rules: {
-        '@typescript-eslint/explicit-module-boundary-types': ['off']
-      }
-    },
-    {
-      files: ['**/src/**/*.test.{ts,tsx}'],
-      rules: {
-        'i18next/no-literal-string': 'off'
-      }
+  overrides: [{
+    files: ['*.jsx', '*.tsx'],
+    rules: {
+      '@typescript-eslint/explicit-module-boundary-types': ['off']
     }
-  ],
+  }, {
+    files: ['**/src/**/*.test.{ts,tsx}'],
+    rules: {
+      'i18next/no-literal-string': 'off'
+    }
+  }],
   globals: {
     __IS_DEV__: true
   }
