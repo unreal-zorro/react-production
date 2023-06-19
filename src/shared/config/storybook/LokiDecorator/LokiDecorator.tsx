@@ -1,4 +1,4 @@
-import { type StoryFn } from '@storybook/react';
+import { type Decorator, type StoryFn } from '@storybook/react';
 import { useEffect } from 'react';
 // @ts-expect-error
 import isLokiRunning from '@loki/is-loki-running';
@@ -7,7 +7,7 @@ import createAsyncCallback from '@loki/create-async-callback';
 
 const delay = 1000;
 
-export const LokiDecorator = (StoryComponent: StoryFn) => {
+export const LokiDecorator: Decorator = (StoryComponent: StoryFn) => {
   useEffect(() => {
     if (isLokiRunning()) {
       const onDone = createAsyncCallback();
