@@ -13,7 +13,7 @@
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "npx loki test",
     "test:ui:ok": "npx loki approve",
-    "test:ui:ci": "concurrently -s first -k \"npm run storybook\" \"npm run test:ui\"",
+    "test:ui:ci": "concurrently -k --raw -s first \"npm run storybook\" \"npm run test:ui\" \"deelay\"",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook"
   },
@@ -81,6 +81,7 @@
   },
   "dependencies": {
     "concurrently": "^8.2.0",
+    "deelay": "^2.0.0",
     "i18next": "^22.5.1",
     "i18next-browser-languagedetector": "^7.0.2",
     "i18next-http-backend": "^2.2.1",
