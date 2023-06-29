@@ -12,6 +12,8 @@ if (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) != null) {
   defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme;
 }
 
+document.body.className = defaultTheme;
+
 // const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT;
 
 const ThemeProvider: FC<ThemeProviderProps> = (props) => {
