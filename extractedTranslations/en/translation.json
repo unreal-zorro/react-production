@@ -4,6 +4,8 @@
       " Asperiores expedita, nostrum?": ""
     }
   },
+  "decrement": "decrement",
+  "increment": "increment",
   "throw error": "throw error",
   "Войти": "Войти",
   "Главная": "Главная",

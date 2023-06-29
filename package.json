@@ -89,6 +89,7 @@
     "webpack-dev-server": "^4.15.0"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "concurrently": "^8.2.0",
     "deelay": "^2.0.0",
     "i18next": "^22.5.1",
@@ -97,6 +98,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^12.3.1",
+    "react-redux": "^8.1.1",
     "react-router-dom": "^6.11.2"
   },
   "loki": {
@@ -112,6 +114,11 @@
         "target": "chrome.docker",
         "preset": "iPhone 7"
       }
+    }
+  },
+  "overrides": {
+    "loki": {
+      "@storybook/react": "$@storybook/react"
     }
   }
 }
