@@ -13,5 +13,7 @@
   "Войти": "Login",
   "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur doloribus ex laudantium minima modi natus repellendus, voluptatum. Asperiores expedita, nostrum?": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur doloribus ex laudantium minima modi natus repellendus, voluptatum. Asperiores expedita, nostrum?",
   "increment": "increment",
-  "decrement": "decrement"
+  "decrement": "decrement",
+  "Введите имя": "Enter your name",
+  "Введите пароль": "Enter password"
 }
