@@ -12,7 +12,7 @@ interface InputProps extends HTMLInputProps {
   autofocus?: boolean;
 }
 
-export const Input: FC<InputProps> = memo((props: InputProps) => {
+const InputComponent: FC<InputProps> = (props: InputProps) => {
   const {
     className,
     value,
@@ -39,15 +39,15 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
     setCaretPosition(e.target.value.length);
   };
 
-  const onBlur = () => {
+  const onBlur = (): void => {
     setIsFocused(false);
   };
 
-  const onFocus = () => {
+  const onFocus = (): void => {
     setIsFocused(true);
   };
 
-  const onSelect = (e: any) => {
+  const onSelect = (e: any): void => {
     setCaretPosition(e?.target?.selectionStart || 0);
   };
 
@@ -79,4 +79,6 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
       </div>
     </div>
   );
-});
+};
+
+export const Input: FC<InputProps> = memo(InputComponent);
