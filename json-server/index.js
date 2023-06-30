@@ -1,6 +1,5 @@
 const fs = require('fs');
 const jsonServer = require('json-server');
-const jwt = require('jsonwebtoken');
 const path = require('path');
 
 const server = jsonServer.create();
@@ -11,9 +10,9 @@ server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
 
 // Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
-server.use(async (req, res, next) => {
-  await new Promise((res) => {
-    setTimeout(res, 800);
+server.use(async (req, resolve, next) => {
+  await new Promise((resolve) => {
+    setTimeout(resolve, 800);
   });
   next();
 });
