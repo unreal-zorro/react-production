@@ -3,6 +3,7 @@ import { type BuildPaths } from '../build/types/config';
 import path from 'path';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
+import webpack from 'webpack';
 
 export default ({ config }: { config: Configuration }): Configuration => {
   const paths: BuildPaths = {
@@ -38,6 +39,12 @@ export default ({ config }: { config: Configuration }): Configuration => {
         config.module.rules.push(buildCssLoader(true));
       }
     }
+  }
+
+  if (config.plugins) {
+    config.plugins.push(new webpack.DefinePlugin({
+      __IS_DEV__: true
+    }));
   }
 
   return config;

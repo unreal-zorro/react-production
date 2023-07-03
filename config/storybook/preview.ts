@@ -19,7 +19,8 @@ const preview: Preview = {
     LokiDecorator,
     StyleDecorator,
     ThemeDecorator(Theme.LIGHT),
-    RouterDecorator]
+    RouterDecorator
+  ]
 };
 
 export default preview;

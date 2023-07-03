@@ -1,12 +1,20 @@
-import { configureStore, type ReducersMapObject, type Store } from '@reduxjs/toolkit';
+import {
+  type AnyAction,
+  configureStore,
+  type ReducersMapObject,
+  type Store,
+  type ThunkDispatch
+} from '@reduxjs/toolkit';
 import { type StateSchema } from './StateSchema';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
+import { loginReducer } from 'features/AuthByUsername';
 
 export function createReduxStore (initialState: StateSchema): Store {
   const rootReducers: ReducersMapObject<StateSchema> = {
     counter: counterReducer,
-    user: userReducer
+    user: userReducer,
+    loginForm: loginReducer
   };
 
   return configureStore<StateSchema>({
@@ -15,3 +23,6 @@ export function createReduxStore (initialState: StateSchema): Store {
     preloadedState: initialState
   });
 }
+
+export type RootState = ReducersMapObject<StateSchema>;
+export type AppThunkDispatch = ThunkDispatch<RootState, any, AnyAction>;
