@@ -18,6 +18,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1
+        run: chrome --version
       - name: install modules
         run: npm install --force
       - name: build production project
@@ -34,6 +37,6 @@ jobs:
       - name: build storybook
         run: npm run storybook:build
         if: always()
-#      - name: screenshot testing
-#        run: npm run test:ui:ci
-#        if: always()
+      - name: screenshot testing
+        run: npm run test:ui:ci
+        if: always()
