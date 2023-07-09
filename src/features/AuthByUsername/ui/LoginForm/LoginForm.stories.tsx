@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { LoginForm } from './LoginForm';
+import LoginForm from './LoginForm';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
 const meta = {
@@ -16,19 +16,19 @@ export const Primary: Story = {
   args: {}
 };
 Primary.decorators = [StoreDecorator({
-  loginForm: { username: '123', password: 'abc' }
+  loginForm: { username: '123', password: 'abc', isLoading: false }
 })];
 
 export const withError: Story = {
   args: {}
 };
 withError.decorators = [StoreDecorator({
-  loginForm: { username: '123', password: 'abc', error: 'ERROR' }
+  loginForm: { username: '123', password: 'abc', isLoading: false, error: 'ERROR' }
 })];
 
 export const Loading: Story = {
   args: {}
 };
 Loading.decorators = [StoreDecorator({
-  loginForm: { isLoading: true }
+  loginForm: { username: '123', password: 'abc', isLoading: true }
 })];

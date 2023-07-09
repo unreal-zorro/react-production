@@ -5,15 +5,23 @@ import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginActions } from '../../model/slice/loginSlice';
-import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { type AppDispatch } from 'app/providers/StoreProvider';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
+import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
+import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
+import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 
-interface LoginFormProps {
+export interface LoginFormProps {
   className?: string;
 }
+
+const initialReducers: ReducersList = {
+  loginForm: loginReducer
+};
 
 const LoginFormComponent: FC<LoginFormProps> = (props: LoginFormProps) => {
   const {
@@ -21,7 +29,10 @@ const LoginFormComponent: FC<LoginFormProps> = (props: LoginFormProps) => {
   } = props;
   const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
-  const { username, password, error, isLoading } = useSelector(getLoginState);
+  const username = useSelector(getLoginUsername);
+  const password = useSelector(getLoginPassword);
+  const isLoading = useSelector(getLoginIsLoading);
+  const error = useSelector(getLoginError);
 
   const onChangeUsername = useCallback((value: string) => {
     dispatch(loginActions.setUsername(value));
@@ -36,34 +47,41 @@ const LoginFormComponent: FC<LoginFormProps> = (props: LoginFormProps) => {
   }, [dispatch, username, password]);
 
   return (
-    <div className={classNames(cls.LoginForm, {}, [className ?? ''])}>
-      <Text title={String(t('Форма авторизации'))} />
-      {error && <Text text={String(t('Вы ввели неверный логин или пароль'))} theme={TextTheme.ERROR} />}
-      <Input
-        autofocus
-        type="text"
-        className={cls.input}
-        placeholder={String(t('Введите имя'))}
-        onChange={onChangeUsername}
-        value={username}
-      />
-      <Input
-        type="text"
-        className={cls.input}
-        placeholder={String(t('Введите пароль'))}
-        onChange={onChangePassword}
-        value={password}
-      />
-      <Button
-        theme={ButtonTheme.OUTLINE}
-        className={cls.loginBtn}
-        onClick={onLoginClick}
-        disabled={isLoading}
-      >
-        {t('Войти')}
-      </Button>
-    </div>
+    <DynamicModuleLoader
+      removeAfterUnmount
+      reducers={initialReducers}
+    >
+      <div className={classNames(cls.LoginForm, {}, [className ?? ''])}>
+        <Text title={String(t('Форма авторизации'))} />
+        {error && <Text text={String(t('Вы ввели неверный логин или пароль'))} theme={TextTheme.ERROR} />}
+        <Input
+          autofocus
+          type="text"
+          className={cls.input}
+          placeholder={String(t('Введите имя'))}
+          onChange={onChangeUsername}
+          value={username}
+        />
+        <Input
+          type="text"
+          className={cls.input}
+          placeholder={String(t('Введите пароль'))}
+          onChange={onChangePassword}
+          value={password}
+        />
+        <Button
+          theme={ButtonTheme.OUTLINE}
+          className={cls.loginBtn}
+          onClick={onLoginClick}
+          disabled={isLoading}
+        >
+          {t('Войти')}
+        </Button>
+      </div>
+    </DynamicModuleLoader>
   );
 };
 
-export const LoginForm: FC<LoginFormProps> = memo(LoginFormComponent);
+const LoginForm: FC<LoginFormProps> = memo(LoginFormComponent);
+
+export default LoginForm;
