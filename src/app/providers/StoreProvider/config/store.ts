@@ -35,4 +35,6 @@ export function createReduxStore (
 }
 
 export type RootState = ReducersMapObject<StateSchema>;
-export type AppThunkDispatch = ThunkDispatch<RootState, any, AnyAction>;
+export type AppDispatch = ThunkDispatch<RootState, any, AnyAction>;
+
+// export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

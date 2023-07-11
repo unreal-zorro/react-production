@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "first": "FirstName",
+    "lastname": "LastName",
+    "age": 30,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "City",
+    "username": "admin",
+    "avatar": "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg"
+  }
 }
