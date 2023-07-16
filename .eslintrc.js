@@ -75,7 +75,8 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies,
     'no-param-reassign': 'off',
     '@typescript-eslint/explicit-function-return-type': 'warn',
-    'react/display-name': 'off'
+    'react/display-name': 'off',
+    'no-undef': 'off'
   },
   overrides: [{
     files: ['*.jsx', '*.tsx'],
@@ -90,6 +91,7 @@ module.exports = {
     }
   }],
   globals: {
-    __IS_DEV__: true
+    __IS_DEV__: true,
+    __API__: true
   }
 };

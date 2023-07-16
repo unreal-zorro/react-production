@@ -13,39 +13,29 @@ export default ({ config }: { config: Configuration }): Configuration => {
     src: path.resolve(__dirname, '..', '..', 'src')
   };
 
-  if (config.resolve) {
-    if (config.resolve.modules) {
-      config.resolve.modules.push(paths.src);
-    }
-    if (config.resolve.extensions) {
-      config.resolve.extensions.push('.ts', '.tsx');
-    }
-  }
+  config?.resolve?.modules?.push(paths.src);
+  config?.resolve?.extensions?.push('.ts', '.tsx');
 
   if (config.module) {
-    if (config.module.rules) {
-      config.module.rules = [...config.module.rules.map((rule: RuleSetRule) => {
-        // eslint-disable-next-line
-        if (/svg/.test(rule.test as string)) {
-          return {
-            ...rule,
-            exclude: /\.svg$/i
-          };
-        }
-        return rule;
-      })];
-      if (config.module.rules) {
-        config.module.rules.push(buildSvgLoader());
-        config.module.rules.push(buildCssLoader(true));
+    config.module.rules = config?.module?.rules?.map((rule: RuleSetRule | '...') => {
+      // eslint-disable-next-line
+        if (/svg/.test((rule as RuleSetRule).test as string)) {
+        return {
+          ...(rule as RuleSetRule),
+          exclude: /\.svg$/i
+        };
       }
-    }
+      return rule;
+    });
   }
 
-  if (config.plugins) {
-    config.plugins.push(new webpack.DefinePlugin({
-      __IS_DEV__: true
-    }));
-  }
+  config?.module?.rules?.push(buildSvgLoader());
+  config?.module?.rules?.push(buildCssLoader(true));
+
+  config?.plugins?.push(new webpack.DefinePlugin({
+    __IS_DEV__: JSON.stringify(true),
+    __API__: JSON.stringify('')
+  }));
 
   return config;
 };

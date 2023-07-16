@@ -12,6 +12,8 @@
     "jsx": "react-jsx",
     // js and ts
     "allowJs": true,
+    // строгий режим
+    "strict": true,
     // разреш. модулей
     "moduleResolution": "node",
     // Базовый url для абсолютного импорта
