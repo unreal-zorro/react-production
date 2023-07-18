@@ -14,6 +14,9 @@ import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLo
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynaminModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { type AsyncThunkAction } from '@reduxjs/toolkit';
+import { Profile } from 'entities/Profile';
+import { type User } from 'entities/User';
 
 export interface LoginFormProps {
   className?: string;
@@ -46,7 +49,7 @@ const LoginFormComponent: FC<LoginFormProps> = (props: LoginFormProps) => {
   }, [dispatch]);
 
   const onLoginClick = useCallback(async () => {
-    const result = await dispatch(loginByUsername({ username, password }));
+    const result = await dispatch(loginByUsername({ username, password }) as AsyncThunkAction<User, any, any>);
     if (result.meta.requestStatus === 'fulfilled') {
       onSuccess();
     }
