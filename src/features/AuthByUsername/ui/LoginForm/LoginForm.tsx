@@ -15,7 +15,6 @@ import { getLoginError } from '../../model/selectors/getLoginError/getLoginError
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynaminModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { type AsyncThunkAction } from '@reduxjs/toolkit';
-import { Profile } from 'entities/Profile';
 import { type User } from 'entities/User';
 
 export interface LoginFormProps {
