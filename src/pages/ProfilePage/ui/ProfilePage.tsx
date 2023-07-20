@@ -1,16 +1,17 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { type FC, useCallback, useEffect } from 'react';
-// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynaminModuleLoader/DynamicModuleLoader';
 import {
   fetchProfileData,
   getProfileError,
   getProfileForm,
   getProfileIsLoading,
-  getProfileReadonly, type Profile,
+  getProfileReadonly, getProfileValidateErrors, type Profile,
   profileActions,
   ProfileCard,
-  profileReducer
+  profileReducer,
+  ValidateProfileError
 } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
@@ -18,6 +19,7 @@ import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { type AsyncThunkAction } from '@reduxjs/toolkit';
 import { type Currency } from 'entities/Currency';
 import { type Country } from 'entities/Country';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 
 const reducers: ReducersList = {
   profile: profileReducer
@@ -31,15 +33,26 @@ const ProfilePage: FC<ProfilePageProps> = (props: ProfilePageProps) => {
   const {
     className
   } = props;
-  // const { t } = useTranslation();
+  const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
   const formData = useSelector(getProfileForm);
   const idLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
+  const validateErrors = useSelector(getProfileValidateErrors);
+
+  const validateErrorTranslates = {
+    [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
+    [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион'),
+    [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
+    [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+    [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст')
+  };
 
   useEffect(() => {
-    void dispatch(fetchProfileData() as AsyncThunkAction<Profile, undefined, any>);
+    if (__PROJECT__ !== 'storybook') {
+      void dispatch(fetchProfileData() as AsyncThunkAction<Profile, undefined, any>);
+    }
   }, [dispatch]);
 
   const onChangeFirstname = useCallback((value?: string) => {
@@ -81,6 +94,15 @@ const ProfilePage: FC<ProfilePageProps> = (props: ProfilePageProps) => {
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames('', {}, [className ?? ''])}>
         <ProfilePageHeader />
+        {validateErrors?.length && validateErrors.map(err => {
+          return (
+            <Text
+              key={err}
+              theme={TextTheme.ERROR}
+              text={validateErrorTranslates[err]}
+            />
+          );
+        })}
         <ProfileCard
           data={formData}
           isLoading={idLoading}
