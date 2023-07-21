@@ -30,7 +30,7 @@ module.exports = {
     // 0 - off, 1 - warning, 2 - rule on; 2 - number of spaces
     'react/jsx-indent': [2, 2],
     'react/jsx-indent-props': [2, 2],
-    indent: [2, 2],
+    indent: [2, 2, { SwitchCase: 1 }],
     'react/jsx-filename-extension': [2, {
       extensions: ['.js', '.jsx', '.tsx']
     }],
