@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -100,6 +102,30 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "123",
+      "id": "b09fBYY"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "777",
+      "id": "II-40I2"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "Привет!!!",
+      "id": "aPfK0LL"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "111",
+      "id": "s7QzfTu"
     }
   ],
   "users": [
@@ -118,14 +144,28 @@
       "avatar": "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg"
     }
   ],
-  "profile": {
-    "first": "FirstName",
-    "lastname": "LastName",
-    "age": 35,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "City",
-    "username": "admin",
-    "avatar": "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "FirstName123",
+      "lastname": "LastName",
+      "age": 35,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "City",
+      "username": "admin",
+      "avatar": "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg"
+    },
+    {
+      "id": "2",
+      "first": "Name",
+      "lastname": "LastName",
+      "age": 30,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "City",
+      "username": "admin123",
+      "avatar": "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg"
+    }
+  ]
 }

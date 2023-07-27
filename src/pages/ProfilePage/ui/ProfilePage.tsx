@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { type FC, useCallback, useEffect } from 'react';
+import { type FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynaminModuleLoader/DynamicModuleLoader';
 import {
@@ -20,6 +20,8 @@ import { type AsyncThunkAction } from '@reduxjs/toolkit';
 import { type Currency } from 'entities/Currency';
 import { type Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 
 const reducers: ReducersList = {
   profile: profileReducer
@@ -40,6 +42,7 @@ const ProfilePage: FC<ProfilePageProps> = (props: ProfilePageProps) => {
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
   const validateErrors = useSelector(getProfileValidateErrors);
+  const { id } = useParams<{ id: string }>();
 
   const validateErrorTranslates = {
     [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
@@ -49,11 +52,11 @@ const ProfilePage: FC<ProfilePageProps> = (props: ProfilePageProps) => {
     [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст')
   };
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      void dispatch(fetchProfileData() as AsyncThunkAction<Profile, undefined, any>);
+  useInitialEffect(() => {
+    if (id) {
+      void dispatch(fetchProfileData(id) as AsyncThunkAction<Profile, string, any>);
     }
-  }, [dispatch]);
+  });
 
   const onChangeFirstname = useCallback((value?: string) => {
     dispatch(profileActions.updateProfile({ first: value ?? '' }));

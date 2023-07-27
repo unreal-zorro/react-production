@@ -14,6 +14,7 @@ import { type To } from '@remix-run/router';
 import { type NavigateOptions } from 'react-router/dist/lib/context';
 import { type ArticleDetailsSchema } from 'entities/Article';
 import { type ArticleDetailsCommentSchema } from 'pages/ArticleDetailPage';
+import { type AddCommentFormSchema } from 'features/addCommentForm';
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -24,6 +25,7 @@ export interface StateSchema {
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleDetailsCommentSchema;
+  addCommentForm?: AddCommentFormSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

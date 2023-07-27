@@ -5,8 +5,6 @@ import {
 import { type Comment } from 'entities/Comment';
 import { type StateSchema } from 'app/providers/StoreProvider';
 import { type ArticleDetailsCommentSchema } from '../types/ArticleDetailsCommentSchema';
-import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
-import { type Article } from 'entities/Article';
 import {
   fetchCommentsByArticleId
 } from 'pages/ArticleDetailPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
