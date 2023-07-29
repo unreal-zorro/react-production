@@ -76,7 +76,8 @@ module.exports = {
     'no-param-reassign': 'off',
     '@typescript-eslint/explicit-function-return-type': 'warn',
     'react/display-name': 'off',
-    'no-undef': 'off'
+    'no-undef': 'off',
+    'react/no-array-index-key': 'off'
   },
   overrides: [{
     files: ['*.jsx', '*.tsx'],

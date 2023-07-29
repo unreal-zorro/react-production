@@ -4,7 +4,7 @@ import { ArticleImageBlockComponent } from './ArticleImageBlockComponent';
 import { ArticleBlockType } from 'entities/Article/model/types/article';
 
 const meta = {
-  title: 'shared/ArticleImageBlockComponent',
+  title: 'entities/Article/ArticleImageBlockComponent',
   component: ArticleImageBlockComponent,
   argTypes: {}
 } satisfies Meta<typeof ArticleImageBlockComponent>;
@@ -17,7 +17,7 @@ export const Normal: Story = {
     block: {
       id: '1',
       type: ArticleBlockType.IMAGE,
-      src: 'src',
+      src: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
       title: 'title'
     }
   }

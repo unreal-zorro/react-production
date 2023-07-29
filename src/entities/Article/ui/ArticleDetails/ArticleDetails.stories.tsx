@@ -6,7 +6,7 @@ import { type Article } from 'entities/Article';
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
 
 const meta = {
-  title: 'entities/ArticleDetails',
+  title: 'entities/Article/ArticleDetails',
   component: ArticleDetails,
   argTypes: {}
 } satisfies Meta<typeof ArticleDetails>;
@@ -22,6 +22,10 @@ const article: Article = {
   views: 1022,
   createdAt: '26.02.2022',
   type: [ArticleType.IT],
+  user: {
+    id: '1',
+    username: 'User'
+  },
   blocks: [
     {
       id: '1',

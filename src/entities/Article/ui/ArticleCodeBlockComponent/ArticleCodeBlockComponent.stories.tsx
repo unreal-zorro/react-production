@@ -4,7 +4,7 @@ import { ArticleCodeBlockComponent } from './ArticleCodeBlockComponent';
 import { ArticleBlockType } from 'entities/Article/model/types/article';
 
 const meta = {
-  title: 'shared/ArticleCodeBlockComponent',
+  title: 'entities/Article/ArticleCodeBlockComponent',
   component: ArticleCodeBlockComponent,
   argTypes: {}
 } satisfies Meta<typeof ArticleCodeBlockComponent>;
