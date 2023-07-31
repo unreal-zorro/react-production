@@ -16,12 +16,12 @@ import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchA
 import { type AsyncThunkAction } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
 import {
-  getArticlesPageError,
-  getArticlesPageIsLoading,
-  getArticlesPageView
+  getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView
 } from '../../model/selectors/articlesPageSelectors';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { Page } from 'shared/ui/Page/Page';
+import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 
 interface ArticlesPageProps {
   className?: string;
@@ -46,21 +46,35 @@ const ArticlesPage: FC<ArticlesPageProps> = (props: ArticlesPageProps) => {
     dispatch(articlesPageActions.setView(view));
   }, [dispatch]);
 
+  const onLoadNextPart = useCallback(() => {
+    void dispatch(fetchNextArticlesPage() as unknown as AsyncThunkAction<Article, undefined, any>);
+  }, [dispatch]);
+
   useInitialEffect(() => {
-    void dispatch(fetchArticlesList() as unknown as AsyncThunkAction<Article, undefined, any>);
     dispatch(articlesPageActions.initState());
+    void dispatch(fetchArticlesList({
+      page: 1
+    }) as unknown as AsyncThunkAction<Article, undefined, any>);
   });
+
+  if (error) {
+    return (
+      <Text text={String(t('Произошла непредвиденная ошибка'))} theme={TextTheme.ERROR} />
+    );
+  }
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(cls.ArticlesPage, {}, [className ?? ''])}>
-        {error && <Text text={String(t('Произошла непредвиденная ошибка'))} theme={TextTheme.ERROR} />}
+      <Page
+        className={classNames(cls.ArticlesPage, {}, [className ?? ''])}
+        onScrollEnd={onLoadNextPart}
+      >
         <ArticleViewSelector view={view} onViewClick={onChangeView} />
         <ArticleList
           isLoading={isLoading}
           view={view}
           articles={articles} />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };
