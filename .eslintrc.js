@@ -77,7 +77,8 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'warn',
     'react/display-name': 'off',
     'no-undef': 'off',
-    'react/no-array-index-key': 'off'
+    'react/no-array-index-key': 'off',
+    'n/no-callback-literal': 'off'
   },
   overrides: [{
     files: ['*.jsx', '*.tsx'],

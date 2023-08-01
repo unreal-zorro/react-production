@@ -13,6 +13,7 @@ import { $api } from 'shared/api/api';
 // import { type To } from '@remix-run/router';
 // import { type NavigateOptions } from 'react-router/dist/lib/context';
 import { type CombinedState, type Reducer } from 'redux';
+import { uiReducer } from 'features/UI';
 
 export function createReduxStore (
   initialState: StateSchema,
@@ -22,7 +23,8 @@ export function createReduxStore (
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     counter: counterReducer,
-    user: userReducer
+    user: userReducer,
+    ui: uiReducer
   };
 
   const reducerManager = createReducerManager(rootReducers);

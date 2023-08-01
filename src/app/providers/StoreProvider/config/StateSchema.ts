@@ -16,10 +16,12 @@ import { type ArticleDetailsSchema } from 'entities/Article';
 import { type ArticleDetailsCommentSchema } from 'pages/ArticleDetailPage';
 import { type AddCommentFormSchema } from 'features/addCommentForm';
 import { type ArticlesPageSchema } from 'pages/ArticlesPage';
+import { type UISchema } from 'features/UI';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  ui: UISchema;
 
   // Асинхронные редюсеры
   loginForm?: LoginSchema;
