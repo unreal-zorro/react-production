@@ -1,14 +1,12 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticlesPage.module.scss';
 import React, { type FC, memo, useCallback } from 'react';
-import {
-  ArticleList, type ArticleView, ArticleViewSelector
-} from 'entities/Article';
+import { ArticleList } from 'entities/Article';
 import {
   DynamicModuleLoader, type ReducersList
 } from 'shared/lib/components/DynaminModuleLoader/DynamicModuleLoader';
 import {
-  articlesPageActions, articlesPageReducer, getArticles
+  articlesPageReducer, getArticles
 } from '../../model/slices/articlesPageSlice';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -22,6 +20,8 @@ import { useTranslation } from 'react-i18next';
 import { Page } from 'widgets/Page/Page';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+import { useSearchParams } from 'react-router-dom';
 
 interface ArticlesPageProps {
   className?: string;
@@ -41,17 +41,14 @@ const ArticlesPage: FC<ArticlesPageProps> = (props: ArticlesPageProps) => {
   const isLoading = useSelector(getArticlesPageIsLoading);
   const view = useSelector(getArticlesPageView);
   const error = useSelector(getArticlesPageError);
-
-  const onChangeView = useCallback((view: ArticleView) => {
-    dispatch(articlesPageActions.setView(view));
-  }, [dispatch]);
+  const [searchParams] = useSearchParams();
 
   const onLoadNextPart = useCallback(() => {
     void dispatch(fetchNextArticlesPage() as AsyncThunkAction<undefined, undefined, any>);
   }, [dispatch]);
 
   useInitialEffect(() => {
-    void dispatch(initArticlesPage() as AsyncThunkAction<undefined, undefined, any>);
+    void dispatch(initArticlesPage(searchParams) as unknown as AsyncThunkAction<undefined, undefined, any>);
   });
 
   if (error) {
@@ -66,11 +63,13 @@ const ArticlesPage: FC<ArticlesPageProps> = (props: ArticlesPageProps) => {
         className={classNames(cls.ArticlesPage, {}, [className ?? ''])}
         onScrollEnd={onLoadNextPart}
       >
-        <ArticleViewSelector view={view} onViewClick={onChangeView} />
+        <ArticlesPageFilters />
         <ArticleList
           isLoading={isLoading}
           view={view}
-          articles={articles} />
+          articles={articles}
+          className={cls.list}
+        />
       </Page>
     </DynamicModuleLoader>
   );

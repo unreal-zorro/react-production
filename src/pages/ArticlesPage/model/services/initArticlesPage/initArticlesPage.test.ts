@@ -11,7 +11,7 @@ describe('initArticlesPage.test', () => {
         page: 1
       }
     });
-    await thunk.callThunk(undefined);
+    await thunk.callThunk(undefined as unknown as URLSearchParams);
 
     expect(thunk.dispatch).toBeCalledTimes(4);
     expect(fetchArticlesList).toBeCalledWith({ page: 1 });

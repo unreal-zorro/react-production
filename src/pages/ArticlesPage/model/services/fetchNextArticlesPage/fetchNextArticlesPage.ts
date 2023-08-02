@@ -21,9 +21,7 @@ ThunkConfig<string>
 
     if (hasMore && !isLoading) {
       dispatch(articlesPageActions.setPage(page + 1));
-      void dispatch(fetchArticlesList({
-        page: page + 1
-      }) as unknown as AsyncThunkAction<Article, undefined, any>);
+      void dispatch(fetchArticlesList({}) as unknown as AsyncThunkAction<Article, undefined, any>);
     }
 
     return undefined;
