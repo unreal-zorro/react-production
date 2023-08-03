@@ -13,7 +13,7 @@ import { type AxiosInstance } from 'axios';
 // import { type To } from '@remix-run/router';
 // import { type NavigateOptions } from 'react-router/dist/lib/context';
 import { type ArticleDetailsSchema } from 'entities/Article';
-import { type ArticleDetailsCommentSchema } from 'pages/ArticleDetailPage';
+import { type ArticleDetailsPageSchema } from 'pages/ArticleDetailPage';
 import { type AddCommentFormSchema } from 'features/addCommentForm';
 import { type ArticlesPageSchema } from 'pages/ArticlesPage';
 import { type UISchema } from 'features/UI';
@@ -27,9 +27,9 @@ export interface StateSchema {
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
-  articleDetailsComments?: ArticleDetailsCommentSchema;
   addCommentForm?: AddCommentFormSchema;
   articlesPage?: ArticlesPageSchema;
+  articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

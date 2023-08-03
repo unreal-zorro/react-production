@@ -63,11 +63,11 @@ module.exports = {
     '@typescript-eslint/strict-boolean-expressions': 'off',
     'i18next/no-literal-string': ['error', {
       markupOnly: true,
-      ignoreAttributes: ['data-testid', 'to']
+      ignoreAttributes: ['data-testid', 'to', 'target']
     }],
     'max-len': ['error', {
       ignoreComments: true,
-      code: 120
+      code: 125
     }],
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
@@ -78,7 +78,8 @@ module.exports = {
     'react/display-name': 'off',
     'no-undef': 'off',
     'react/no-array-index-key': 'off',
-    'n/no-callback-literal': 'off'
+    'n/no-callback-literal': 'off',
+    'arrow-body-style': 'off'
   },
   overrides: [{
     files: ['*.jsx', '*.tsx'],

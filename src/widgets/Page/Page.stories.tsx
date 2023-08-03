@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Page } from './Page';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
 const meta = {
-  title: 'shared/Page',
+  title: 'widgets/Page',
   component: Page,
   argTypes: {}
 } satisfies Meta<typeof Page>;
@@ -16,3 +17,4 @@ export const Normal: Story = {
     children: <>123</>
   }
 };
+Normal.decorators = [StoreDecorator({})];
