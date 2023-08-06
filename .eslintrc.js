@@ -22,7 +22,8 @@ module.exports = {
   plugins: [
     'react',
     'i18next',
-    'react-hooks'
+    'react-hooks',
+    'super-plugin'
   ],
   rules: {
     'react/jsx-uses-react': 'error',
@@ -79,7 +80,8 @@ module.exports = {
     'no-undef': 'off',
     'react/no-array-index-key': 'off',
     'n/no-callback-literal': 'off',
-    'arrow-body-style': 'off'
+    'arrow-body-style': 'off',
+    'super-plugin/path-checker': 2
   },
   overrides: [{
     files: ['*.jsx', '*.tsx'],

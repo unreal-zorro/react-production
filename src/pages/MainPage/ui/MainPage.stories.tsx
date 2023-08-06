@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { MainPage } from 'pages/MainPage';
+import MainPage from '../ui/MainPage';
 
 const meta = {
   title: 'pages/MainPage',
