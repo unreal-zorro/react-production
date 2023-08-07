@@ -65,6 +65,7 @@ module.exports = {
     'i18next/no-literal-string': ['error', {
       markupOnly: true,
       ignoreAttributes: [
+        'role',
         'data-testid',
         'to',
         'target',
