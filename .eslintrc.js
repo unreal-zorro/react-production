@@ -64,7 +64,15 @@ module.exports = {
     '@typescript-eslint/strict-boolean-expressions': 'off',
     'i18next/no-literal-string': ['error', {
       markupOnly: true,
-      ignoreAttributes: ['data-testid', 'to', 'target']
+      ignoreAttributes: [
+        'data-testid',
+        'to',
+        'target',
+        'justify',
+        'align',
+        'direction',
+        'gap'
+      ]
     }],
     'max-len': ['error', {
       ignoreComments: true,

@@ -10,6 +10,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice';
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynaminModuleLoader/DynamicModuleLoader';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { HStack } from 'shared/ui/Stack';
 
 export interface AddCommentFormProps {
   className?: string;
@@ -41,7 +42,11 @@ const AddCommentForm: FC<AddCommentFormProps> = memo((props: AddCommentFormProps
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(cls.AddCommentForm, {}, [className ?? ''])}>
+      <HStack
+        justify="between"
+        max
+        className={classNames(cls.AddCommentForm, {}, [className ?? ''])}
+      >
         {error && <Text text={String(t('Произошла непредвиденная ошибка'))} theme={TextTheme.ERROR} />}
         <Input
           className={cls.input}
@@ -55,7 +60,7 @@ const AddCommentForm: FC<AddCommentFormProps> = memo((props: AddCommentFormProps
         >
           {t('Отправить')}
         </Button>
-      </div>
+      </HStack>
     </DynamicModuleLoader>
   );
 });
