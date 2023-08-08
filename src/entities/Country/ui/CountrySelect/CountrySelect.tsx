@@ -40,18 +40,7 @@ export const CountrySelect: FC<CountrySelectProps> = memo((props: CountrySelectP
       onChange={onChangeHandler}
       className={className}
       readonly={readonly}
-      direction={'top'}
+      direction={'top right'}
     />
   );
-
-  // return (
-  //   <Select
-  //     className={classNames('', {}, [className ?? ''])}
-  //     label={String(t('Укажите страну'))}
-  //     options={options}
-  //     value={value}
-  //     onChange={onChangeHandler}
-  //     readonly={readonly}
-  //   />
-  // );
 });
