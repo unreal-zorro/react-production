@@ -4,7 +4,7 @@ import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
 const meta = {
-  title: 'pages/Article/ArticleDetailsPageHeader',
+  title: 'pages/ArticleDetailsPage/ArticleDetailsPageHeader',
   component: ArticleDetailsPageHeader,
   argTypes: {}
 } satisfies Meta<typeof ArticleDetailsPageHeader>;
