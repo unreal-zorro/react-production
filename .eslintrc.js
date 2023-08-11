@@ -93,18 +93,22 @@ module.exports = {
     'arrow-body-style': 'off',
     'super-plugin/path-checker': 2
   },
-  overrides: [{
-    files: ['*.jsx', '*.tsx'],
-    rules: {
-      '@typescript-eslint/explicit-module-boundary-types': ['off']
+  overrides: [
+    {
+      files: ['*.jsx', '*.tsx'],
+      rules: {
+        '@typescript-eslint/explicit-module-boundary-types': ['off'],
+        '@typescript-eslint/indent': ['off']
+      }
+    },
+    {
+      files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off',
+        'max-len': 'off'
+      }
     }
-  }, {
-    files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
-    rules: {
-      'i18next/no-literal-string': 'off',
-      'max-len': 'off'
-    }
-  }],
+  ],
   globals: {
     __IS_DEV__: true,
     __API__: true,

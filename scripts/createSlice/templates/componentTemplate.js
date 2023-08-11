@@ -9,7 +9,7 @@ ${interfaceConst} ${componentName}Props {
   className?: string;
 }
 
-export const ${componentName}: FC<${componentName}Props>  = memo((props: ${componentName}Props) => {
+export const ${componentName}: FC<${componentName}Props> = memo((props: ${componentName}Props) => {
   const {
     className
   } = props;
