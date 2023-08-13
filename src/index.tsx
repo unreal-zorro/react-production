@@ -9,18 +9,19 @@ import { ErrorBoundary } from 'app/providers/ErrorBoundary/';
 
 const container = document.getElementById('root');
 
-if (container) {
-  const root = createRoot(container);
-
-  root.render(
-    <BrowserRouter>
-      <StoreProvider>
-        <ErrorBoundary>
-          <ThemeProvider>
-            <App />
-          </ThemeProvider>
-        </ErrorBoundary>
-      </StoreProvider>
-    </BrowserRouter>
-  );
+if (!container) {
+  throw new Error('Container root not found. Failed to mount react app');
 }
+const root = createRoot(container);
+
+root.render(
+  <BrowserRouter>
+    <StoreProvider>
+      <ErrorBoundary>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </ErrorBoundary>
+    </StoreProvider>
+  </BrowserRouter>
+);
