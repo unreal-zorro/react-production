@@ -3,7 +3,7 @@ import cls from './ArticleListItem.module.scss';
 import { type FC, type HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
-  type Article, ArticleBlockType, type ArticleTextBlock, ArticleView
+  type Article, type ArticleTextBlock
 } from '../../model/types/article';
 import { Text } from 'shared/ui/Text/Text';
 import { Icon } from 'shared/ui/Icon/Icon';
@@ -14,6 +14,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { ArticleBlockType, ArticleView } from '../../model/consts/articleConsts';
 
 interface ArticleListItemProps {
   className?: string;

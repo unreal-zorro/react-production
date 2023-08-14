@@ -26,7 +26,10 @@
     // * as ... -> ...
     "allowSyntheticDefaultImports": true,
     // Делает обработку null и undefined более явной
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    // Указывает TypeScript предупреждать, если есть определённый код,
+    // который не может быть правильно интерпретирован процессом транспиляции одного файла
+    "isolatedModules": true
   },
   // чтобы работал esnext в webpack.config.ts
   "ts-node": {

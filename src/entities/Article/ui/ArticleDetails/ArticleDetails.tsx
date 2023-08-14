@@ -7,7 +7,7 @@ import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { type AsyncThunkAction } from '@reduxjs/toolkit';
-import { type Article, type ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { type Article, type ArticleBlock } from '../../model/types/article';
 import { useSelector } from 'react-redux';
 import {
   getArticleDetailsData,
@@ -24,6 +24,7 @@ import { ArticleCodeBlockComponent } from '../../ui/ArticleCodeBlockComponent/Ar
 import { ArticleImageBlockComponent } from '../../ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../../ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { HStack, VStack } from 'shared/ui/Stack';
+import { ArticleBlockType } from '../../model/consts/articleConsts';
 
 interface ArticleDetailsProps {
   className?: string;
