@@ -1,8 +1,11 @@
 import { classNames, type Mods } from 'shared/lib/classNames/classNames';
 import cls from './Modal.module.scss';
 import type React from 'react';
-import { type FC, type MutableRefObject, type ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import {
+  type FC, type MutableRefObject, type ReactNode, useCallback, useEffect, useRef, useState
+} from 'react';
 import { Portal } from '../Portal/Portal';
+import { Overlay } from '../Overlay/Overlay';
 
 interface ModalProps {
   className?: string;
@@ -50,10 +53,6 @@ export const Modal: FC<ModalProps> = (props: ModalProps) => {
     }
   }, [closeHandler]);
 
-  const onContentClick = (e: React.MouseEvent): void => {
-    e.stopPropagation();
-  };
-
   useEffect(() => {
     if (isOpen) {
       window.addEventListener('keydown', onKeyDown);
@@ -77,17 +76,15 @@ export const Modal: FC<ModalProps> = (props: ModalProps) => {
   return (
     <Portal>
       <div className={classNames(cls.Modal, mods, [className ?? ''])}>
-        <div className={cls.overlay} onClick={closeHandler}>
+        <Overlay onClick={closeHandler} />
+        <div
+          className={cls.content}
+        >
           <div
-            className={cls.content}
-            onClick={onContentClick}
-          >
-            <div
-              className={cls.times}
-              onClick={closeHandler}
-            >&times;</div>
-            {children}
-          </div>
+            className={cls.times}
+            onClick={closeHandler}
+          >&times;</div>
+          {children}
         </div>
       </div>
     </Portal>
