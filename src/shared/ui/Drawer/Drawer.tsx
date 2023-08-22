@@ -3,7 +3,7 @@ import cls from './Drawer.module.scss';
 import { type FC, memo, type ReactNode, useCallback, useEffect } from 'react';
 import { Portal } from '@/shared/ui/Portal/Portal';
 import { Overlay } from '../Overlay/Overlay';
-import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 
 interface DrawerProps {
   className?: string;
@@ -94,7 +94,7 @@ export const DrawerContent: FC<DrawerProps> = memo((props: DrawerProps) => {
   );
 });
 
-export const Drawer: FC<DrawerProps> = memo((props: DrawerProps) => {
+const DrawerAsync: FC<DrawerProps> = (props: DrawerProps) => {
   const {
     children,
     ...otherProps
@@ -110,4 +110,19 @@ export const Drawer: FC<DrawerProps> = memo((props: DrawerProps) => {
       {children}
     </DrawerContent>
   );
-});
+};
+
+export const Drawer: FC<DrawerProps> = (props: DrawerProps) => {
+  const {
+    children,
+    ...otherProps
+  } = props;
+
+  return (
+    <AnimationProvider>
+      <DrawerAsync {...otherProps}>
+        {children}
+      </DrawerAsync>
+    </AnimationProvider>
+  );
+};
