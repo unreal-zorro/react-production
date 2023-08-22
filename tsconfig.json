@@ -19,7 +19,7 @@
     // Базовый url для абсолютного импорта
     "baseUrl": ".",
     "paths": {
-      "*": ["./src/*"]
+      "@/*": ["./src/*"]
     },
     // common js -> esm
     "esModuleInterop": true,
@@ -45,5 +45,7 @@
     "config/**/*.tsx",
     "src/**/*.ts",
     "src/**/*.tsx",
+    "./.eslintrc.js",
+    "./scripts/**/*.ts"
   ]
 }

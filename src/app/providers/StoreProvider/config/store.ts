@@ -6,15 +6,15 @@ import {
   type ThunkDispatch
 } from '@reduxjs/toolkit';
 import { type StateSchema, type ThunkExtraArg } from './StateSchema';
-import { counterReducer } from 'entities/Counter';
-import { userReducer } from 'entities/User';
+import { counterReducer } from '@/entities/Counter';
+import { userReducer } from '@/entities/User';
 import { createReducerManager } from './reducerManager';
-import { $api } from 'shared/api/api';
+import { $api } from '@/shared/api/api';
 // import { type To } from '@remix-run/router';
 // import { type NavigateOptions } from 'react-router/dist/lib/context';
 import { type CombinedState, type Reducer } from 'redux';
-import { uiReducer } from 'features/UI';
-import { rtkApi } from 'shared/api/rktApi';
+import { uiReducer } from '@/features/UI';
+import { rtkApi } from '@/shared/api/rktApi';
 
 export function createReduxStore (
   initialState: StateSchema,

@@ -1,6 +1,6 @@
-import { type CounterSchema } from 'entities/Counter';
-import { type UserSchema } from 'entities/User';
-import { type LoginSchema } from 'features/AuthByUsername/model/types/loginSchema';
+import { type CounterSchema } from '@/entities/Counter';
+import { type UserSchema } from '@/entities/User';
+import { type LoginSchema } from '@/features/AuthByUsername/model/types/loginSchema';
 import {
   type AnyAction,
   type EnhancedStore,
@@ -11,13 +11,13 @@ import { type CombinedState } from 'redux';
 import { type AxiosInstance } from 'axios';
 // import { type To } from '@remix-run/router';
 // import { type NavigateOptions } from 'react-router/dist/lib/context';
-import { type ArticleDetailsSchema } from 'entities/Article';
-import { type ArticleDetailsPageSchema } from 'pages/ArticleDetailPage';
-import { type AddCommentFormSchema } from 'features/addCommentForm';
-import { type ArticlesPageSchema } from 'pages/ArticlesPage';
-import { type UISchema } from 'features/UI';
-import { type rtkApi } from 'shared/api/rktApi';
-import { type ProfileSchema } from 'features/editableProfileCard';
+import { type ArticleDetailsSchema } from '@/entities/Article';
+import { type ArticleDetailsPageSchema } from '@/pages/ArticleDetailPage';
+import { type AddCommentFormSchema } from '@/features/addCommentForm';
+import { type ArticlesPageSchema } from '@/pages/ArticlesPage';
+import { type UISchema } from '@/features/UI';
+import { type rtkApi } from '@/shared/api/rktApi';
+import { type ProfileSchema } from '@/features/editableProfileCard';
 
 export interface StateSchema {
   counter: CounterSchema;
