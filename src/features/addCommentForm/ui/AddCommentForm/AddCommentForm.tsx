@@ -5,7 +5,9 @@ import { useTranslation } from 'react-i18next';
 import { Input } from '@/shared/ui/Input/Input';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import { getAddCommentFormError, getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
+import {
+  getAddCommentFormError, getAddCommentFormText
+} from '../../model/selectors/addCommentFormSelectors';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice';
 import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynaminModuleLoader/DynamicModuleLoader';

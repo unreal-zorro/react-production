@@ -94,7 +94,7 @@ module.exports = {
     'react/no-array-index-key': 'off',
     'n/no-callback-literal': 'off',
     'arrow-body-style': 'off',
-    'super-plugin/path-checker': 2,
+    'super-plugin/path-checker': ['error', { alias: '@' }],
     '@typescript-eslint/consistent-type-imports': ['error', {
       disallowTypeAnnotations: false
     }]
