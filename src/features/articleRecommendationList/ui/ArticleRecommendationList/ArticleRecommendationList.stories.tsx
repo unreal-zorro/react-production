@@ -3,11 +3,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ArticleRecommendationList } from './ArticleRecommendationList';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 // import { type Article } from 'entities/Article';
+// import withMock from 'storybook-addon-mock';
 
 const meta = {
   title: 'features/ArticleRecommendationList',
   component: ArticleRecommendationList,
   argTypes: {}
+  // decorators: [withMock]
 } satisfies Meta<typeof ArticleRecommendationList>;
 
 export default meta;

@@ -12,6 +12,7 @@ declare module '*.svg' {
   const SVG: React.FC<React.SVGProps<SVGSVGElement>>;
   export default SVG;
 }
+declare module 'storybook-addon-mock';
 
 declare const __IS_DEV__: boolean;
 declare const __API__: string;

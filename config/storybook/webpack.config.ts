@@ -18,6 +18,13 @@ export default ({ config }: { config: Configuration }): Configuration => {
   config?.resolve?.modules?.push(paths.src);
   config?.resolve?.extensions?.push('.ts', '.tsx');
 
+  if (config?.resolve?.alias) {
+    config.resolve.alias = {
+      ...config?.resolve?.alias,
+      '@': paths.src
+    };
+  }
+
   if (config.module) {
     config.module.rules = config?.module?.rules?.map((rule: RuleSetRule | '...') => {
       // eslint-disable-next-line
