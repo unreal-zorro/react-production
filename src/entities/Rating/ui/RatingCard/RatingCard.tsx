@@ -1,4 +1,3 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { type FC, memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card } from '@/shared/ui/Card/Card';
@@ -18,6 +17,7 @@ interface RatingCardProps {
   hasFeedback?: boolean;
   onCancel?: (starCount: number) => void;
   onAccept?: (starCount: number, feedback?: string) => void;
+  rate?: number;
 }
 
 export const RatingCard: FC<RatingCardProps> = memo((props: RatingCardProps) => {
@@ -27,11 +27,12 @@ export const RatingCard: FC<RatingCardProps> = memo((props: RatingCardProps) => 
     feedbackTitle,
     hasFeedback,
     onCancel,
-    onAccept
+    onAccept,
+    rate = 0
   } = props;
   const { t } = useTranslation('rating');
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [starsCount, setStarsCount] = useState(0);
+  const [starsCount, setStarsCount] = useState(rate);
   const [feedback, setFeedback] = useState('');
 
   const onSelectStars = useCallback((selectedStarsCount: number) => {
@@ -67,13 +68,14 @@ export const RatingCard: FC<RatingCardProps> = memo((props: RatingCardProps) => 
   );
 
   return (
-    <Card className={classNames('', {}, [className ?? ''])}>
+    <Card className={className} max>
       <VStack
         align="center"
         gap="8"
+        max
       >
-        <Text title={title} />
-        <StarRating size={40} onSelect={onSelectStars} />
+        <Text title={starsCount ? String(t('Спасибо за оценку!')) : title} />
+        <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />
       </VStack>
       <BrowserView>
         <Modal isOpen={isModalOpen} lazy>
