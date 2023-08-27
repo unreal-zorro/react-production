@@ -1,6 +1,6 @@
 import { type CounterSchema } from '@/entities/Counter';
 import { type UserSchema } from '@/entities/User';
-import { type LoginSchema } from '@/features/AuthByUsername/model/types/loginSchema';
+import { type LoginSchema } from '@/features/AuthByUsername';
 import {
   type AnyAction,
   type EnhancedStore,
