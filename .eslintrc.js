@@ -95,7 +95,13 @@ module.exports = {
     'n/no-callback-literal': 'off',
     'arrow-body-style': 'off',
     'super-plugin/path-checker': ['error', { alias: '@' }],
-    'super-plugin/public-api-imports': ['error', { alias: '@' }],
+    'super-plugin/public-api-imports': [
+      'error',
+      {
+        alias: '@',
+        testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx']
+      }
+    ],
     '@typescript-eslint/consistent-type-imports': ['error', {
       disallowTypeAnnotations: false
     }]
