@@ -95,6 +95,13 @@ module.exports = {
     'n/no-callback-literal': 'off',
     'arrow-body-style': 'off',
     'super-plugin/path-checker': ['error', { alias: '@' }],
+    'super-plugin/layer-imports': [
+      'error',
+      {
+        alias: '@',
+        ignoreImportPatterns: ['**/StoreProvider', '**/testing']
+      }
+    ],
     'super-plugin/public-api-imports': [
       'error',
       {
