@@ -25,7 +25,8 @@ module.exports = {
     'react',
     'i18next',
     'react-hooks',
-    'super-plugin'
+    'super-plugin',
+    'unused-imports'
   ],
   rules: {
     'react/jsx-uses-react': 'error',
@@ -33,6 +34,7 @@ module.exports = {
     // 0 - off, 1 - warning, 2 - rule on; 2 - number of spaces
     'react/jsx-indent': [2, 2],
     'react/jsx-indent-props': [2, 2],
+    'unused-imports/no-unused-imports': 'error',
     indent: [2, 2, { SwitchCase: 1 }],
     'react/jsx-filename-extension': [2, {
       extensions: ['.js', '.jsx', '.tsx']
