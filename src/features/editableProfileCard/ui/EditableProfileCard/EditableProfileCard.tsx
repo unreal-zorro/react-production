@@ -7,7 +7,7 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { type AsyncThunkAction } from '@reduxjs/toolkit';
 import { type Currency } from '@/entities/Currency';
 import { type Country } from '@/entities/Country';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { Text, TextTheme } from '@/shared/ui/Text';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import {
   getProfileIsLoading
