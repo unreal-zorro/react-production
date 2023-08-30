@@ -7,9 +7,15 @@ const config: StorybookConfig = {
   ],
   addons: [
     '@storybook/addon-links',
-    '@storybook/addon-essentials',
+    {
+      name: '@storybook/addon-essentials',
+      options: {
+        backgrounds: false
+      }
+    },
     '@storybook/addon-interactions',
-    'storybook-addon-mock'
+    'storybook-addon-mock',
+    'storybook-addon-themes'
   ],
   core: {
     builder: '@storybook/builder-webpack5'
