@@ -4,9 +4,9 @@ import React, { type FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   type Article,
-  type ArticleSortField, ArticleSortSelector,
-  type ArticleView, ArticleViewSelector
-  , type ArticleType, ArticleTypeTabs
+  type ArticleSortField,
+  type ArticleView
+  , type ArticleType
 } from '@/entities/Article';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import { useSelector } from 'react-redux';
@@ -21,6 +21,9 @@ import { type SortOrder } from '@/shared/types';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { type AsyncThunkAction } from '@reduxjs/toolkit';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 
 interface ArticlesPageFiltersProps {
   className?: string;
