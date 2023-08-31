@@ -13,4 +13,4 @@ if (!sliceName) {
   throw new Error('Укажите название слайса');
 }
 
-createTemplate(layer, sliceName).then();
+void createTemplate(layer, sliceName).then();

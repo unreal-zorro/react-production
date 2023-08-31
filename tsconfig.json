@@ -46,6 +46,7 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "./.eslintrc.js",
-    "./scripts/**/*.ts"
+    "./scripts/**/*.ts",
+    "./scripts/**/*.js"
   ]
 }
