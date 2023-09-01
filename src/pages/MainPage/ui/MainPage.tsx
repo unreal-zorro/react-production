@@ -6,7 +6,7 @@ const MainPage: FC = () => {
   const { t } = useTranslation('main');
 
   return (
-    <Page>
+    <Page data-testid='MainPage'>
       <div>
         {t('Главная страница')}
       </div>
