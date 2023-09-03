@@ -25,7 +25,7 @@ export const Counter: FC = () => {
     <div>
       <h1 data-testid="value-title">{counterValue}</h1>
       <Button
-        data-testid="increment-btn"
+        data-testid="add5-btn"
         onClick={handleAddFive}
       >
         {t('add5')}
