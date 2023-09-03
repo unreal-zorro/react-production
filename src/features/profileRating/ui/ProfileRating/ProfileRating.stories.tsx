@@ -18,5 +18,46 @@ export const Normal: Story = {
   }
 };
 Normal.decorators = [
-  StoreDecorator({})
+  StoreDecorator({
+    user: {
+      authData: { id: '1' }
+    }
+  })
 ];
+Normal.parameters = {
+  mockData: [
+    {
+      url: `${__API__}/profile-ratings?userId=1&profileId=1`,
+      method: 'GET',
+      status: 200,
+      response: [
+        {
+          rate: 4
+        }
+      ]
+    }
+  ]
+};
+
+export const WithoutRate: Story = {
+  args: {
+    profileId: '1'
+  }
+};
+WithoutRate.decorators = [
+  StoreDecorator({
+    user: {
+      authData: { id: '1' }
+    }
+  })
+];
+WithoutRate.parameters = {
+  mockData: [
+    {
+      url: `${__API__}/profile-ratings?userId=1&profileId=1`,
+      method: 'GET',
+      status: 200,
+      response: []
+    }
+  ]
+};
