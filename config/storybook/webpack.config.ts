@@ -3,6 +3,7 @@ import { type BuildPaths } from '../build/types/config';
 import path from 'path';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
+import { buildFileLoader } from '../build/loaders/buildFileLoader';
 import webpack from 'webpack';
 
 export default ({ config }: { config: Configuration }): Configuration => {
@@ -15,10 +16,9 @@ export default ({ config }: { config: Configuration }): Configuration => {
     buildLocales: ''
   };
 
-  config?.resolve?.modules?.push(paths.src);
-  config?.resolve?.extensions?.push('.ts', '.tsx');
-
-  if (config?.resolve?.alias) {
+  if (config.resolve) {
+    config.resolve.modules?.push(paths.src);
+    config.resolve.extensions?.push('.ts', '.tsx');
     config.resolve.alias = {
       ...config?.resolve?.alias,
       '@': paths.src
@@ -36,10 +36,11 @@ export default ({ config }: { config: Configuration }): Configuration => {
       }
       return rule;
     });
-  }
 
-  config?.module?.rules?.push(buildSvgLoader());
-  config?.module?.rules?.push(buildCssLoader(true));
+    config.module.rules?.push(buildSvgLoader());
+    config.module.rules?.push(buildCssLoader(true));
+    config.module.rules?.push(buildFileLoader());
+  }
 
   config?.plugins?.push(new webpack.DefinePlugin({
     __IS_DEV__: JSON.stringify(true),
