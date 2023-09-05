@@ -129,6 +129,12 @@ module.exports = {
         'i18next/no-literal-string': 'off',
         'max-len': 'off'
       }
+    },
+    {
+      files: ['cypress/**/*.ts', 'cypress.config.ts'],
+      parserOptions: {
+        project: './cypress/tsconfig.json'
+      }
     }
   ],
   globals: {

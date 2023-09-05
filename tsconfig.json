@@ -48,5 +48,9 @@
     "./.eslintrc.js",
     "./scripts/**/*.ts",
     "./scripts/**/*.js"
+  ],
+  // Массив имён файлов или шаблонов для исключения из программы
+  "exclude": [
+    "./cypress.config.ts"
   ]
 }
