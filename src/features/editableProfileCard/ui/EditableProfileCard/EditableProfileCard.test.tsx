@@ -52,8 +52,8 @@ describe('features/EditableProfileCard', () => {
     await userEvent.type(screen.getByTestId('ProfileCard.firstname'), 'user');
     await userEvent.type(screen.getByTestId('ProfileCard.lastname'), 'user');
 
-    expect(screen.getByTestId('ProfileCard.firstname')).toHaveValue('admin');
-    expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('adminuser');
+    expect(screen.getByTestId('ProfileCard.firstname')).toHaveValue('user');
+    expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('user');
 
     await userEvent.click(screen.getByTestId('EditableProfileCardHeader.CancelButton'));
 
