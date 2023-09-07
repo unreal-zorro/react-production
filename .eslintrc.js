@@ -131,7 +131,7 @@ module.exports = {
       }
     },
     {
-      files: ['cypress/**/*.ts', 'cypress.config.ts'],
+      files: ['cypress/**/*.ts', 'cypress/**/*.tsx', 'cypress.config.ts'],
       parserOptions: {
         project: './cypress/tsconfig.json'
       }
