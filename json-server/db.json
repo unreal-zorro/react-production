@@ -691,6 +691,17 @@
       "city": "City",
       "username": "admin123",
       "avatar": "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg"
+    },
+    {
+      "id": "4",
+      "first": "test",
+      "lastname": "user",
+      "age": 30,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "City",
+      "username": "testuser",
+      "avatar": "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg"
     }
   ],
   "article-ratings": [

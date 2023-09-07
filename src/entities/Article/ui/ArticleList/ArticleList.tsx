@@ -45,6 +45,7 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
   return (
     <div
       className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+      data-testid={'ArticleList'}
     >
       {articles.map((item) => (
         <ArticleListItem
