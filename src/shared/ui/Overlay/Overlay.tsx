@@ -8,10 +8,7 @@ interface OverlayProps {
 }
 
 export const Overlay: FC<OverlayProps> = memo((props: OverlayProps) => {
-  const {
-    className,
-    onClick
-  } = props;
+  const { className, onClick } = props;
 
   return (
     <div

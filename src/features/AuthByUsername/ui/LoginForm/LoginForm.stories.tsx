@@ -15,20 +15,31 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {}
 };
-Primary.decorators = [StoreDecorator({
-  loginForm: { username: '123', password: 'abc', isLoading: false }
-})];
+Primary.decorators = [
+  StoreDecorator({
+    loginForm: { username: '123', password: 'abc', isLoading: false }
+  })
+];
 
-export const withError: Story = {
+export const WithError: Story = {
   args: {}
 };
-withError.decorators = [StoreDecorator({
-  loginForm: { username: '123', password: 'abc', isLoading: false, error: 'ERROR' }
-})];
+WithError.decorators = [
+  StoreDecorator({
+    loginForm: {
+      username: '123',
+      password: 'abc',
+      isLoading: false,
+      error: 'ERROR'
+    }
+  })
+];
 
 export const Loading: Story = {
   args: {}
 };
-Loading.decorators = [StoreDecorator({
-  loginForm: { username: '123', password: 'abc', isLoading: true }
-})];
+Loading.decorators = [
+  StoreDecorator({
+    loginForm: { username: '123', password: 'abc', isLoading: true }
+  })
+];

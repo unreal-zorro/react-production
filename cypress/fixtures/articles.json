@@ -7,9 +7,7 @@
     "views": 1022,
     "createdAt": "26.02.2022",
     "userId": "1",
-    "type": [
-      "IT"
-    ],
+    "type": ["IT"],
     "blocks": [
       {
         "id": "1",
@@ -26,9 +24,7 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": [
-        "ADMIN"
-      ],
+      "roles": ["ADMIN"],
       "avatar": "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg"
     }
   },
@@ -40,9 +36,7 @@
     "views": 1022,
     "createdAt": "26.02.2022",
     "userId": "1",
-    "type": [
-      "IT"
-    ],
+    "type": ["IT"],
     "blocks": [
       {
         "id": "1",
@@ -59,9 +53,7 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": [
-        "ADMIN"
-      ],
+      "roles": ["ADMIN"],
       "avatar": "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg"
     }
   },
@@ -73,9 +65,7 @@
     "views": 1022,
     "createdAt": "26.02.2022",
     "userId": "1",
-    "type": [
-      "IT"
-    ],
+    "type": ["IT"],
     "blocks": [
       {
         "id": "1",
@@ -92,9 +82,7 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": [
-        "ADMIN"
-      ],
+      "roles": ["ADMIN"],
       "avatar": "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg"
     }
   },
@@ -106,9 +94,7 @@
     "views": 1022,
     "createdAt": "26.02.2022",
     "userId": "1",
-    "type": [
-      "IT"
-    ],
+    "type": ["IT"],
     "blocks": [
       {
         "id": "1",
@@ -125,9 +111,7 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": [
-        "ADMIN"
-      ],
+      "roles": ["ADMIN"],
       "avatar": "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg"
     }
   },
@@ -139,9 +123,7 @@
     "views": 1022,
     "createdAt": "26.02.2022",
     "userId": "1",
-    "type": [
-      "IT"
-    ],
+    "type": ["IT"],
     "blocks": [
       {
         "id": "1",
@@ -158,9 +140,7 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": [
-        "ADMIN"
-      ],
+      "roles": ["ADMIN"],
       "avatar": "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg"
     }
   },
@@ -172,9 +152,7 @@
     "views": 1022,
     "createdAt": "26.02.2022",
     "userId": "1",
-    "type": [
-      "IT"
-    ],
+    "type": ["IT"],
     "blocks": [
       {
         "id": "1",
@@ -191,9 +169,7 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": [
-        "ADMIN"
-      ],
+      "roles": ["ADMIN"],
       "avatar": "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg"
     }
   },
@@ -205,9 +181,7 @@
     "views": 1022,
     "createdAt": "26.02.2022",
     "userId": "1",
-    "type": [
-      "IT"
-    ],
+    "type": ["IT"],
     "blocks": [
       {
         "id": "1",
@@ -224,9 +198,7 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": [
-        "ADMIN"
-      ],
+      "roles": ["ADMIN"],
       "avatar": "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg"
     }
   },
@@ -238,9 +210,7 @@
     "views": 1022,
     "createdAt": "26.02.2022",
     "userId": "1",
-    "type": [
-      "ECONOMICS"
-    ],
+    "type": ["ECONOMICS"],
     "blocks": [
       {
         "id": "1",
@@ -257,9 +227,7 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": [
-        "ADMIN"
-      ],
+      "roles": ["ADMIN"],
       "avatar": "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg"
     }
   },
@@ -271,9 +239,7 @@
     "views": 1022,
     "createdAt": "26.02.2022",
     "userId": "1",
-    "type": [
-      "SCIENCE"
-    ],
+    "type": ["SCIENCE"],
     "blocks": [
       {
         "id": "1",
@@ -290,9 +256,7 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": [
-        "ADMIN"
-      ],
+      "roles": ["ADMIN"],
       "avatar": "https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg"
     }
   }

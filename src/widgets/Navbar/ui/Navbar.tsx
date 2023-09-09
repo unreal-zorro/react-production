@@ -38,16 +38,10 @@ export const Navbar: FC = memo(({ className = '' }: NavbarProps) => {
           title={String(t('Супер приложение'))}
           theme={TextTheme.INVERTED}
         />
-        <AppLink
-          to={getRouteArticleCreate()}
-          theme={AppLinkTheme.SECONDARY}
-        >
+        <AppLink to={getRouteArticleCreate()} theme={AppLinkTheme.SECONDARY}>
           {t('Создать статью')}
         </AppLink>
-        <HStack
-          gap="16"
-          className={cls.actions}
-        >
+        <HStack gap="16" className={cls.actions}>
           <NotificationButton />
           <AvatarDropdown />
         </HStack>
@@ -64,10 +58,9 @@ export const Navbar: FC = memo(({ className = '' }: NavbarProps) => {
       >
         {t('Войти')}
       </Button>
-      {isAuthModal && <LoginModal
-        isOpen={isAuthModal}
-        onClose={onCloseModal}
-      />}
+      {isAuthModal && (
+        <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+      )}
     </header>
   );
 });

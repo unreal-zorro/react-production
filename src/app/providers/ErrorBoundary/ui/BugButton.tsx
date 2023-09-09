@@ -6,7 +6,9 @@ import { useTranslation } from 'react-i18next';
 export const BugButton: FC = () => {
   const [error, setError] = useState(false);
   const { t } = useTranslation();
-  const onThrow = (): void => { setError(true); };
+  const onThrow = (): void => {
+    setError(true);
+  };
 
   useEffect(() => {
     if (error) {
@@ -14,11 +16,5 @@ export const BugButton: FC = () => {
     }
   }, [error]);
 
-  return (
-    <Button
-      onClick={onThrow}
-    >
-      {t('Пробросить ошибку')}
-    </Button>
-  );
+  return <Button onClick={onThrow}>{t('Пробросить ошибку')}</Button>;
 };

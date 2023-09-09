@@ -11,9 +11,7 @@ interface ProfilePageProps {
 }
 
 const ProfilePage: FC<ProfilePageProps> = (props: ProfilePageProps) => {
-  const {
-    className
-  } = props;
+  const { className } = props;
   const { id } = useParams<{ id: string }>();
 
   if (!id) {
@@ -22,7 +20,7 @@ const ProfilePage: FC<ProfilePageProps> = (props: ProfilePageProps) => {
 
   return (
     <Page
-      data-testid='ProfilePage'
+      data-testid="ProfilePage"
       className={classNames('', {}, [className ?? ''])}
     >
       <VStack gap="16" max>

@@ -52,7 +52,9 @@ export const ProfileCard: FC<ProfileCardProps> = (props: ProfileCardProps) => {
       <HStack
         justify="center"
         max
-        className={classNames(cls.ProfileCard, { [cls.loading]: true }, [className])}
+        className={classNames(cls.ProfileCard, { [cls.loading]: true }, [
+          className
+        ])}
       >
         <Loader />
       </HStack>
@@ -87,12 +89,8 @@ export const ProfileCard: FC<ProfileCardProps> = (props: ProfileCardProps) => {
       className={classNames(cls.ProfileCard, mods, [className])}
     >
       {data?.avatar && (
-        <HStack
-          justify="center"
-          max
-          className={cls.avatarWrapper}
-        >
-          <Avatar src={data?.avatar}/>
+        <HStack justify="center" max className={cls.avatarWrapper}>
+          <Avatar src={data?.avatar} />
         </HStack>
       )}
       <Input

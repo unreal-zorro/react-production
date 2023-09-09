@@ -86,10 +86,7 @@ const LoginFormComponent: FC<LoginFormProps> = (props: LoginFormProps) => {
   }, [onKeyDown]);
 
   return (
-    <DynamicModuleLoader
-      removeAfterUnmount
-      reducers={initialReducers}
-    >
+    <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
       <div className={classNames(cls.LoginForm, {}, [className ?? ''])}>
         <Text title={String(t('Форма авторизации'))} />
         {error && (

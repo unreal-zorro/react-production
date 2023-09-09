@@ -6,10 +6,8 @@ const MainPage: FC = () => {
   const { t } = useTranslation('main');
 
   return (
-    <Page data-testid='MainPage'>
-      <div>
-        {t('Главная страница')}
-      </div>
+    <Page data-testid="MainPage">
+      <div>{t('Главная страница')}</div>
     </Page>
   );
 };

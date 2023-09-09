@@ -10,16 +10,18 @@ interface ThemeSwitcherProps {
   className?: string;
 }
 
-export const ThemeSwitcher: FC = memo(({ className = '' }: ThemeSwitcherProps) => {
-  const { theme, toggleTheme } = useTheme();
+export const ThemeSwitcher: FC = memo(
+  ({ className = '' }: ThemeSwitcherProps) => {
+    const { theme, toggleTheme } = useTheme();
 
-  return (
-    <Button
-      theme={ButtonTheme.CLEAR}
-      className={classNames('', {}, [className])}
-      onClick={toggleTheme}
-    >
-      {theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}
-    </Button>
-  );
-});
+    return (
+      <Button
+        theme={ButtonTheme.CLEAR}
+        className={classNames('', {}, [className])}
+        onClick={toggleTheme}
+      >
+        {theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}
+      </Button>
+    );
+  }
+);

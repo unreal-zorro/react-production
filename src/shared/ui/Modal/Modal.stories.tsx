@@ -16,14 +16,16 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     isOpen: true,
-    children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur doloribus ex laudantium minima modi natus repellendus, voluptatum. Asperiores expedita, nostrum?'
+    children:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur doloribus ex laudantium minima modi natus repellendus, voluptatum. Asperiores expedita, nostrum?'
   }
 };
 
 export const Dark: Story = {
   args: {
     isOpen: true,
-    children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur doloribus ex laudantium minima modi natus repellendus, voluptatum. Asperiores expedita, nostrum?'
+    children:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur doloribus ex laudantium minima modi natus repellendus, voluptatum. Asperiores expedita, nostrum?'
   }
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];

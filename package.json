@@ -30,7 +30,10 @@
     "postinstall": "node ./scripts/clear-cache.js"
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": ["prettier", "eslint"]
+    "**/*.{ts,tsx}": [
+      "prettier",
+      "eslint"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -84,7 +87,7 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.12",
     "eslint-plugin-super-plugin": "^0.0.12",

@@ -5,7 +5,8 @@ import { useSelector } from 'react-redux';
 import { getArticles } from '../../model/slices/articlesPageSlice';
 import {
   getArticlesPageError,
-  getArticlesPageIsLoading, getArticlesPageView
+  getArticlesPageIsLoading,
+  getArticlesPageView
 } from '../../model/selectors/articlesPageSelectors';
 import { useSearchParams } from 'react-router-dom';
 import { type AsyncThunkAction } from '@reduxjs/toolkit';
@@ -19,36 +20,45 @@ interface ArticleInfiniteListProps {
   className?: string;
 }
 
-export const ArticleInfiniteList: FC<ArticleInfiniteListProps> = memo((props: ArticleInfiniteListProps) => {
-  const {
-    className
-  } = props;
-  const { t } = useTranslation('article-list');
-  const articles = useSelector(getArticles.selectAll);
-  const isLoading = useSelector(getArticlesPageIsLoading);
-  const error = useSelector(getArticlesPageError);
-  const view = useSelector(getArticlesPageView);
-  const [searchParams] = useSearchParams();
-  const dispatch = useAppDispatch();
+export const ArticleInfiniteList: FC<ArticleInfiniteListProps> = memo(
+  (props: ArticleInfiniteListProps) => {
+    const { className } = props;
+    const { t } = useTranslation('article-list');
+    const articles = useSelector(getArticles.selectAll);
+    const isLoading = useSelector(getArticlesPageIsLoading);
+    const error = useSelector(getArticlesPageError);
+    const view = useSelector(getArticlesPageView);
+    const [searchParams] = useSearchParams();
+    const dispatch = useAppDispatch();
 
-  useInitialEffect(() => {
-    void dispatch(initArticlesPage(searchParams) as unknown as AsyncThunkAction<undefined, undefined, any>);
-  });
+    useInitialEffect(() => {
+      void dispatch(
+        initArticlesPage(searchParams) as unknown as AsyncThunkAction<
+          undefined,
+          undefined,
+          any
+        >
+      );
+    });
 
-  if (error) {
+    if (error) {
+      return (
+        <Text
+          text={String(t('Ошибка при загрузке статей'))}
+          theme={TextTheme.ERROR}
+        />
+      );
+    }
+
     return (
-      <Text text={String(t('Ошибка при загрузке статей'))} theme={TextTheme.ERROR} />
+      <div className={classNames('', {}, [className ?? ''])}>
+        <ArticleList
+          isLoading={isLoading}
+          view={view}
+          articles={articles}
+          className={className}
+        />
+      </div>
     );
   }
-
-  return (
-    <div className={classNames('', {}, [className ?? ''])}>
-      <ArticleList
-        isLoading={isLoading}
-        view={view}
-        articles={articles}
-        className={className}
-      />
-    </div>
-  );
-});
+);

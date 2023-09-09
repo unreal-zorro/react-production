@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { ArticleList } from './ArticleList';
-import {
-  type Article
-} from '../../model/types/article';
+import { type Article } from '../../model/types/article';
 import {
   ArticleBlockType,
   ArticleType,
@@ -30,9 +28,7 @@ const article: Article = {
     id: '1',
     username: 'User'
   },
-  type: [
-    ArticleType.IT
-  ],
+  type: [ArticleType.IT],
   blocks: [
     {
       id: '1',
@@ -97,24 +93,20 @@ const article: Article = {
 
 export const ListSmall: Story = {
   args: {
-    articles: new Array(9)
-      .fill(0)
-      .map((item, index) => ({
-        ...article,
-        id: String(index)
-      })),
+    articles: new Array(9).fill(0).map((item, index) => ({
+      ...article,
+      id: String(index)
+    })),
     view: ArticleView.SMALL
   }
 };
 
 export const ListBig: Story = {
   args: {
-    articles: new Array(3)
-      .fill(0)
-      .map((item, index) => ({
-        ...article,
-        id: String(index)
-      })),
+    articles: new Array(3).fill(0).map((item, index) => ({
+      ...article,
+      id: String(index)
+    })),
     view: ArticleView.BIG
   }
 };

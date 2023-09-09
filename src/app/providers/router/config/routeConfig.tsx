@@ -10,9 +10,15 @@ import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import {
   AppRoutes,
-  getRouteAbout, getRouteAdmin, getRouteArticleCreate,
-  getRouteArticleDetails, getRouteArticleEdit, getRouteArticles,
-  getRouteForbidden, getRouteMain, getRouteProfile
+  getRouteAbout,
+  getRouteAdmin,
+  getRouteArticleCreate,
+  getRouteArticleDetails,
+  getRouteArticleEdit,
+  getRouteArticles,
+  getRouteForbidden,
+  getRouteMain,
+  getRouteProfile
 } from '@/shared/const/router';
 import type { AppRouteProps } from '@/shared/types/router';
 

@@ -2,7 +2,10 @@ import { USER_LOCALSTORAGE_KEY } from '../../../src/shared/const/localstorage';
 import type { User } from '../../../src/entities/User';
 import { selectByTestId } from '../../helpers/routing.cy';
 
-export const login = (username: string = 'testuser', password: string = '123') => {
+export const login = (
+  username: string = 'testuser',
+  password: string = '123'
+) => {
   return cy
     .request({
       method: 'POST',

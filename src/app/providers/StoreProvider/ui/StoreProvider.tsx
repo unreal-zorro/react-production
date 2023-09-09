@@ -11,12 +11,10 @@ interface StoreProviderProps {
   asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
 }
 
-export const StoreProvider: FC<StoreProviderProps> = (props: StoreProviderProps) => {
-  const {
-    children,
-    initialState,
-    asyncReducers
-  } = props;
+export const StoreProvider: FC<StoreProviderProps> = (
+  props: StoreProviderProps
+) => {
+  const { children, initialState, asyncReducers } = props;
 
   // const navigate = useNavigate();
 
@@ -26,9 +24,5 @@ export const StoreProvider: FC<StoreProviderProps> = (props: StoreProviderProps)
     // navigate
   );
 
-  return (
-    <Provider store={store}>
-      {children}
-    </Provider>
-  );
+  return <Provider store={store}>{children}</Provider>;
 };

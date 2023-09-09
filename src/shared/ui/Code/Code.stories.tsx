@@ -13,12 +13,13 @@ type Story = StoryObj<typeof meta>;
 
 export const Normal: Story = {
   args: {
-    text: 'import type { Meta, StoryObj } from \'@storybook/react\';\n' +
+    text:
+      "import type { Meta, StoryObj } from '@storybook/react';\n" +
       '\n' +
-      'import { Code } from \'./Code\';\n' +
+      "import { Code } from './Code';\n" +
       '\n' +
       'const meta = {\n' +
-      '  title: \'shared/Code\',\n' +
+      "  title: 'shared/Code',\n" +
       '  component: Code,\n' +
       '  argTypes: {}\n' +
       '} satisfies Meta<typeof Code>;\n' +

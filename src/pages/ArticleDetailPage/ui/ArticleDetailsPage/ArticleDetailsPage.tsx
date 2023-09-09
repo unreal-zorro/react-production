@@ -4,7 +4,8 @@ import { type FC, memo } from 'react';
 import { ArticleDetails } from '@/entities/Article';
 import { useParams } from 'react-router-dom';
 import {
-  DynamicModuleLoader, type ReducersList
+  DynamicModuleLoader,
+  type ReducersList
 } from '@/shared/lib/components/DynaminModuleLoader/DynamicModuleLoader';
 import { Page } from '@/widgets/Page';
 import { articleDetailsPageReducer } from '../../model/slices';
@@ -22,10 +23,10 @@ const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer
 };
 
-const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props: ArticleDetailsPageProps) => {
-  const {
-    className
-  } = props;
+const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (
+  props: ArticleDetailsPageProps
+) => {
+  const { className } = props;
   const { id } = useParams<{ id: string }>();
 
   if (!id) {
@@ -34,7 +35,9 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props: ArticleDetailsPa
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <Page className={classNames(cls.ArticleDetailsPage, {}, [className ?? ''])}>
+      <Page
+        className={classNames(cls.ArticleDetailsPage, {}, [className ?? ''])}
+      >
         <VStack gap="16" max>
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />

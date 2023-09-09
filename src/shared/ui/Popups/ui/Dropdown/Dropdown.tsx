@@ -21,21 +21,14 @@ interface DropdownProps {
   trigger: ReactNode;
 }
 
-export function Dropdown (props: DropdownProps) {
-  const {
-    className,
-    items,
-    direction = 'bottom right',
-    trigger
-  } = props;
+export function Dropdown(props: DropdownProps) {
+  const { className, items, direction = 'bottom right', trigger } = props;
 
   const menuClasses = [mapDirectionClasses[direction]];
 
   return (
     <Menu as="div" className={classNames('', {}, [className, popupCls.popup])}>
-      <Menu.Button className={popupCls.trigger}>
-        {trigger}
-      </Menu.Button>
+      <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
       <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
         {items.map((item, index) => {
           const content = ({ active }: { active: boolean }) => (

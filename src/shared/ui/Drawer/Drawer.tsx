@@ -3,7 +3,10 @@ import cls from './Drawer.module.scss';
 import { type FC, memo, type ReactNode, useCallback, useEffect } from 'react';
 import { Portal } from '../Portal/Portal';
 import { Overlay } from '../Overlay/Overlay';
-import { AnimationProvider, useAnimationLibs } from '../../lib/components/AnimationProvider';
+import {
+  AnimationProvider,
+  useAnimationLibs
+} from '../../lib/components/AnimationProvider';
 
 interface DrawerProps {
   className?: string;
@@ -16,12 +19,7 @@ interface DrawerProps {
 const height = window.innerHeight - 100;
 
 export const DrawerContent: FC<DrawerProps> = memo((props: DrawerProps) => {
-  const {
-    className,
-    children,
-    isOpen,
-    onClose
-  } = props;
+  const { className, children, isOpen, onClose } = props;
 
   const { Spring, Gesture } = useAnimationLibs();
   const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
@@ -45,32 +43,35 @@ export const DrawerContent: FC<DrawerProps> = memo((props: DrawerProps) => {
     });
   };
 
-  const bind = Gesture.useDrag(({
-    last,
-    velocity: [, vy],
-    direction: [, dy],
-    movement: [, my],
-    cancel
-  }) => {
-    if (my < -70) {
-      cancel();
-    }
-
-    if (last) {
-      if (my > height * 0.5 || (vy > 0.5 && dy > 0)) {
-        close();
-      } else {
-        openDrawer();
+  const bind = Gesture.useDrag(
+    ({
+      last,
+      velocity: [, vy],
+      direction: [, dy],
+      movement: [, my],
+      cancel
+    }) => {
+      if (my < -70) {
+        cancel();
       }
-    } else {
-      api.start({ y: my, immediate: true });
+
+      if (last) {
+        if (my > height * 0.5 || (vy > 0.5 && dy > 0)) {
+          close();
+        } else {
+          openDrawer();
+        }
+      } else {
+        api.start({ y: my, immediate: true });
+      }
+    },
+    {
+      from: () => [0, y.get()],
+      filterTaps: true,
+      bounds: { top: 0 },
+      rubberband: true
     }
-  }, {
-    from: () => [0, y.get()],
-    filterTaps: true,
-    bounds: { top: 0 },
-    rubberband: true
-  });
+  );
 
   if (!isOpen) {
     return null;
@@ -95,34 +96,22 @@ export const DrawerContent: FC<DrawerProps> = memo((props: DrawerProps) => {
 });
 
 const DrawerAsync: FC<DrawerProps> = (props: DrawerProps) => {
-  const {
-    children,
-    ...otherProps
-  } = props;
+  const { children, ...otherProps } = props;
   const { isLoaded } = useAnimationLibs();
 
   if (!isLoaded) {
     return null;
   }
 
-  return (
-    <DrawerContent {...otherProps}>
-      {children}
-    </DrawerContent>
-  );
+  return <DrawerContent {...otherProps}>{children}</DrawerContent>;
 };
 
 export const Drawer: FC<DrawerProps> = (props: DrawerProps) => {
-  const {
-    children,
-    ...otherProps
-  } = props;
+  const { children, ...otherProps } = props;
 
   return (
     <AnimationProvider>
-      <DrawerAsync {...otherProps}>
-        {children}
-      </DrawerAsync>
+      <DrawerAsync {...otherProps}>{children}</DrawerAsync>
     </AnimationProvider>
   );
 };

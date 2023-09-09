@@ -29,13 +29,13 @@ export const Error: Story = {
   }
 };
 
-export const onlyTitle: Story = {
+export const OnlyTitle: Story = {
   args: {
     title: 'Title Title Title'
   }
 };
 
-export const onlyText: Story = {
+export const OnlyText: Story = {
   args: {
     text: 'Description Description Description Description'
   }
@@ -49,19 +49,19 @@ export const PrimaryDark: Story = {
 };
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const onlyTitleDark: Story = {
+export const OnlyTitleDark: Story = {
   args: {
     title: 'Title Title Title'
   }
 };
-onlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)];
+OnlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const onlyTextDark: Story = {
+export const OnlyTextDark: Story = {
   args: {
     text: 'Description Description Description Description'
   }
 };
-onlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];
+OnlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const SizeL: Story = {
   args: {

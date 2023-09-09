@@ -22,7 +22,13 @@ module.exports = {
       jsx: true
     }
   },
-  plugins: ['react', 'i18next', 'react-hooks', 'super-plugin', 'unused-imports'],
+  plugins: [
+    'react',
+    'i18next',
+    'react-hooks',
+    'super-plugin',
+    'unused-imports'
+  ],
   rules: {
     'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error',
@@ -58,7 +64,7 @@ module.exports = {
     'no-unused-vars': 'warn',
     'react/require-default-props': 'off',
     'react/react-in-jsx-scope': 'off',
-    'react/jsx-props-no-spreading': 'warn',
+    'react/jsx-props-no-spreading': 'off',
     'react/function-component-definition': 'off',
     'no-shadow': 'off',
     'import/extensions': 'off',
@@ -71,7 +77,18 @@ module.exports = {
       'error',
       {
         markupOnly: true,
-        ignoreAttributes: ['as', 'role', 'data-testid', 'to', 'target', 'justify', 'align', 'border', 'direction', 'gap']
+        ignoreAttributes: [
+          'as',
+          'role',
+          'data-testid',
+          'to',
+          'target',
+          'justify',
+          'align',
+          'border',
+          'direction',
+          'gap'
+        ]
       }
     ],
     'max-len': [
@@ -86,7 +103,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies,
     'no-param-reassign': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'warn',
+    '@typescript-eslint/explicit-function-return-type': 'off',
     'react/display-name': 'off',
     'no-undef': 'off',
     'react/no-array-index-key': 'off',
@@ -104,7 +121,11 @@ module.exports = {
       'error',
       {
         alias: '@',
-        testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx']
+        testFilesPatterns: [
+          '**/*.test.*',
+          '**/*.story.*',
+          '**/StoreDecorator.tsx'
+        ]
       }
     ],
     '@typescript-eslint/consistent-type-imports': [
@@ -141,5 +162,11 @@ module.exports = {
     __IS_DEV__: true,
     __API__: true,
     __PROJECT__: true
-  }
+  },
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
+  ignorePatterns: ['/**/node_modules/*', 'out', 'dist', 'build/']
 };

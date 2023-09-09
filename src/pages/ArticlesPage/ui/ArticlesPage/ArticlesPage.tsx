@@ -2,7 +2,8 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticlesPage.module.scss';
 import React, { type FC, memo, useCallback } from 'react';
 import {
-  DynamicModuleLoader, type ReducersList
+  DynamicModuleLoader,
+  type ReducersList
 } from '@/shared/lib/components/DynaminModuleLoader/DynamicModuleLoader';
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
 import { Page } from '@/widgets/Page';
@@ -21,13 +22,13 @@ const reducers: ReducersList = {
 };
 
 const ArticlesPage: FC<ArticlesPageProps> = (props: ArticlesPageProps) => {
-  const {
-    className
-  } = props;
+  const { className } = props;
   const dispatch = useAppDispatch();
 
   const onLoadNextPart = useCallback(() => {
-    void dispatch(fetchNextArticlesPage() as AsyncThunkAction<undefined, undefined, any>);
+    void dispatch(
+      fetchNextArticlesPage() as AsyncThunkAction<undefined, undefined, any>
+    );
   }, [dispatch]);
 
   return (

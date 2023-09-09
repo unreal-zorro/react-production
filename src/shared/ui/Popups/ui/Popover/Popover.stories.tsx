@@ -14,9 +14,7 @@ type Story = StoryObj<typeof meta>;
 export const Normal: Story = {
   args: {
     direction: 'bottom right',
-    trigger: (
-      <p>ICON</p>
-    ),
+    trigger: <p>ICON</p>,
     children: 'Hello'
   }
 };

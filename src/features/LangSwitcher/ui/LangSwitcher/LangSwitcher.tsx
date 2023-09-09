@@ -8,20 +8,22 @@ interface LangSwitcherProps {
   short?: boolean;
 }
 
-export const LangSwitcher: FC<LangSwitcherProps> = memo(({ className = '', short = false }: LangSwitcherProps) => {
-  const { t, i18n } = useTranslation();
+export const LangSwitcher: FC<LangSwitcherProps> = memo(
+  ({ className = '', short = false }: LangSwitcherProps) => {
+    const { t, i18n } = useTranslation();
 
-  const toggle = (): void => {
-    void i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru').then();
-  };
+    const toggle = (): void => {
+      void i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru').then();
+    };
 
-  return (
-    <Button
-      className={classNames('', {}, [className])}
-      theme={ButtonTheme.CLEAR}
-      onClick={toggle}
-    >
-      {short ? t('Короткий язык') : t('Язык')}
-    </Button>
-  );
-});
+    return (
+      <Button
+        className={classNames('', {}, [className])}
+        theme={ButtonTheme.CLEAR}
+        onClick={toggle}
+      >
+        {short ? t('Короткий язык') : t('Язык')}
+      </Button>
+    );
+  }
+);

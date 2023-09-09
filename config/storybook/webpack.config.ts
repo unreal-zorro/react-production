@@ -26,16 +26,18 @@ export default ({ config }: { config: Configuration }): Configuration => {
   }
 
   if (config.module) {
-    config.module.rules = config?.module?.rules?.map((rule: RuleSetRule | '...') => {
-      // eslint-disable-next-line
-      if (/svg/.test((rule as RuleSetRule).test as string)) {
-        return {
-          ...(rule as RuleSetRule),
-          exclude: /\.svg$/i
-        };
+    config.module.rules = config?.module?.rules?.map(
+      (rule: RuleSetRule | '...') => {
+        // eslint-disable-next-line
+        if (/svg/.test((rule as RuleSetRule).test as string)) {
+          return {
+            ...(rule as RuleSetRule),
+            exclude: /\.svg$/i
+          };
+        }
+        return rule;
       }
-      return rule;
-    });
+    );
 
     config.module.rules?.push(buildSvgLoader());
     config.module.rules?.push(buildCssLoader(true));

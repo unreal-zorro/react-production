@@ -14,7 +14,9 @@ export const LokiDecorator: Decorator = (StoryComponent: StoryFn) => {
       const timer = setTimeout(() => {
         onDone();
       }, delay);
-      return () => { clearTimeout(timer); };
+      return () => {
+        clearTimeout(timer);
+      };
     }
 
     return undefined;

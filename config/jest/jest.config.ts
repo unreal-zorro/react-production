@@ -29,7 +29,16 @@ export default {
   testEnvironment: 'jsdom',
 
   // An array of file extensions your modules use
-  moduleFileExtensions: ['js', 'mjs', 'cjs', 'jsx', 'ts', 'tsx', 'json', 'node'],
+  moduleFileExtensions: [
+    'js',
+    'mjs',
+    'cjs',
+    'jsx',
+    'ts',
+    'tsx',
+    'json',
+    'node'
+  ],
 
   // An array of directory names to be searched recursively up from the requiring module's location
   moduleDirectories: ['node_modules'],

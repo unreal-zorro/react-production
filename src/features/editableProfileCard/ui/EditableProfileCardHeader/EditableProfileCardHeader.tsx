@@ -18,11 +18,9 @@ interface EditableProfileCardHeaderProps {
   className?: string;
 }
 
-export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = memo(
-  (props: EditableProfileCardHeaderProps) => {
-    const {
-      className
-    } = props;
+export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> =
+  memo((props: EditableProfileCardHeaderProps) => {
+    const { className } = props;
     const { t } = useTranslation('profile');
     const authData = useSelector(getUserAuthData);
     const profileData = useSelector(getProfileData);
@@ -39,7 +37,9 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = mem
     }, [dispatch]);
 
     const onSave = useCallback(() => {
-      void dispatch(updateProfileData() as AsyncThunkAction<Profile, undefined, any>);
+      void dispatch(
+        updateProfileData() as AsyncThunkAction<Profile, undefined, any>
+      );
     }, [dispatch]);
 
     return (
@@ -48,37 +48,35 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = mem
         justify="between"
         className={classNames('', {}, [className ?? ''])}
       >
-        <Text title={String(t('Профиль'))}/>
+        <Text title={String(t('Профиль'))} />
         {canEdit && (
           <div>
-            {
-              readonly
-                ? (
-                  <Button
-                    theme={ButtonTheme.OUTLINE}
-                    onClick={onEdit}
-                    data-testid={'EditableProfileCardHeader.EditButton'}
-                  >
-                    {t('Редактировать')}
-                  </Button>)
-                : (
-                  <HStack gap="8">
-                    <Button
-                      theme={ButtonTheme.OUTLINE_RED}
-                      onClick={onCancelEdit}
-                      data-testid={'EditableProfileCardHeader.CancelButton'}
-                    >
-                      {t('Отменить')}
-                    </Button>
-                    <Button
-                      theme={ButtonTheme.OUTLINE}
-                      onClick={onSave}
-                      data-testid={'EditableProfileCardHeader.SaveButton'}
-                    >
-                      {t('Сохранить')}
-                    </Button>
-                  </HStack>)
-            }
+            {readonly ? (
+              <Button
+                theme={ButtonTheme.OUTLINE}
+                onClick={onEdit}
+                data-testid={'EditableProfileCardHeader.EditButton'}
+              >
+                {t('Редактировать')}
+              </Button>
+            ) : (
+              <HStack gap="8">
+                <Button
+                  theme={ButtonTheme.OUTLINE_RED}
+                  onClick={onCancelEdit}
+                  data-testid={'EditableProfileCardHeader.CancelButton'}
+                >
+                  {t('Отменить')}
+                </Button>
+                <Button
+                  theme={ButtonTheme.OUTLINE}
+                  onClick={onSave}
+                  data-testid={'EditableProfileCardHeader.SaveButton'}
+                >
+                  {t('Сохранить')}
+                </Button>
+              </HStack>
+            )}
           </div>
         )}
       </HStack>

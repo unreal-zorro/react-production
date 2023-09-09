@@ -18,23 +18,21 @@ export const Sidebar: FC = memo(({ className = '' }: SidebarProps) => {
   const sidebarItemsList = useSelector(getSidebarItems);
 
   const onToggle = (): void => {
-    setCollapsed(prevState => !prevState);
+    setCollapsed((prevState) => !prevState);
   };
 
   const itemsList = useMemo(() => {
-    return sidebarItemsList.map((item) =>
-      (<SidebarItem
-        item={item}
-        collapsed={collapsed}
-        key={item.path}
-      />)
-    );
+    return sidebarItemsList.map((item) => (
+      <SidebarItem item={item} collapsed={collapsed} key={item.path} />
+    ));
   }, [collapsed, sidebarItemsList]);
 
   return (
     <aside
       data-testid="sidebar"
-      className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+      className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+        className
+      ])}
     >
       <Button
         data-testid="sidebar-toggle"
@@ -51,10 +49,7 @@ export const Sidebar: FC = memo(({ className = '' }: SidebarProps) => {
       </VStack>
       <div className={cls.switchers}>
         <ThemeSwitcher />
-        <LangSwitcher
-          short={collapsed}
-          className={cls.lang}
-        />
+        <LangSwitcher short={collapsed} className={cls.lang} />
       </div>
     </aside>
   );

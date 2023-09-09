@@ -22,13 +22,14 @@ type StoreDecoratorType = (
 ) => Decorator;
 
 // eslint-disable-next-line react/display-name
-export const StoreDecorator: StoreDecoratorType = (
-  state,
-  asyncReducers
-) => (StoryComponent) => {
-  return (
-    <StoreProvider initialState={state} asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}>
-      <StoryComponent />
-    </StoreProvider>
-  );
-};
+export const StoreDecorator: StoreDecoratorType =
+  (state, asyncReducers) => (StoryComponent) => {
+    return (
+      <StoreProvider
+        initialState={state}
+        asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
+      >
+        <StoryComponent />
+      </StoreProvider>
+    );
+  };
