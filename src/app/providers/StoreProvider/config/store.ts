@@ -16,7 +16,7 @@ import { type CombinedState, type Reducer } from 'redux';
 import { uiReducer } from '@/features/UI';
 import { rtkApi } from '@/shared/api/rktApi';
 
-export function createReduxStore (
+export function createReduxStore(
   initialState: StateSchema,
   asyncReducers?: ReducersMapObject<StateSchema>
   // navigate?: (to: To, options?: NavigateOptions) => void
@@ -40,11 +40,12 @@ export function createReduxStore (
     reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
-    middleware: getDefaultMiddleware => getDefaultMiddleware({
-      thunk: {
-        extraArgument: extraArg
-      }
-    }).concat(rtkApi.middleware)
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument: extraArg
+        }
+      }).concat(rtkApi.middleware)
   });
 
   // @ts-expect-error

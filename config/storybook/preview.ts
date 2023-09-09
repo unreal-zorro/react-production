@@ -25,13 +25,7 @@ const preview: Preview = {
       ]
     }
   },
-  decorators: [
-    LokiDecorator,
-    StyleDecorator,
-    ThemeDecorator(Theme.LIGHT),
-    RouterDecorator,
-    SuspenseDecorator
-  ]
+  decorators: [LokiDecorator, StyleDecorator, ThemeDecorator(Theme.LIGHT), RouterDecorator, SuspenseDecorator]
 };
 
 export default preview;

@@ -12,7 +12,10 @@ import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLogi
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
-import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynaminModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  type ReducersList
+} from '@/shared/lib/components/DynaminModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { type AsyncThunkAction } from '@reduxjs/toolkit';
 import { type User } from '@/entities/User';
@@ -27,10 +30,7 @@ const initialReducers: ReducersList = {
 };
 
 const LoginFormComponent: FC<LoginFormProps> = (props: LoginFormProps) => {
-  const {
-    className,
-    onSuccess
-  } = props;
+  const { className, onSuccess } = props;
   const { t } = useTranslation();
   // const dispatch = useDispatch<AppDispatch>();
   const dispatch = useAppDispatch();
@@ -39,28 +39,43 @@ const LoginFormComponent: FC<LoginFormProps> = (props: LoginFormProps) => {
   const isLoading = useSelector(getLoginIsLoading);
   const error = useSelector(getLoginError);
 
-  const onChangeUsername = useCallback((value: string) => {
-    dispatch(loginActions.setUsername(value));
-  }, [dispatch]);
+  const onChangeUsername = useCallback(
+    (value: string) => {
+      dispatch(loginActions.setUsername(value));
+    },
+    [dispatch]
+  );
 
-  const onChangePassword = useCallback((value: string) => {
-    dispatch(loginActions.setPassword(value));
-  }, [dispatch]);
+  const onChangePassword = useCallback(
+    (value: string) => {
+      dispatch(loginActions.setPassword(value));
+    },
+    [dispatch]
+  );
 
   const onLoginClick = useCallback(async () => {
-    const result = await dispatch(loginByUsername({ username, password }) as AsyncThunkAction<User, any, any>);
+    const result = await dispatch(
+      loginByUsername({ username, password }) as AsyncThunkAction<
+        User,
+        any,
+        any
+      >
+    );
     if (result.meta.requestStatus === 'fulfilled') {
       onSuccess();
     }
   }, [onSuccess, dispatch, username, password]);
 
-  const onKeyDown = useCallback((e: Event): void => {
-    void (async () => {
-      if ((e as unknown as KeyboardEvent).key === 'Enter') {
-        await onLoginClick();
-      }
-    })();
-  }, [onLoginClick]);
+  const onKeyDown = useCallback(
+    (e: Event): void => {
+      void (async () => {
+        if ((e as unknown as KeyboardEvent).key === 'Enter') {
+          await onLoginClick();
+        }
+      })();
+    },
+    [onLoginClick]
+  );
 
   useEffect(() => {
     window.addEventListener('keydown', onKeyDown);
@@ -77,7 +92,12 @@ const LoginFormComponent: FC<LoginFormProps> = (props: LoginFormProps) => {
     >
       <div className={classNames(cls.LoginForm, {}, [className ?? ''])}>
         <Text title={String(t('Форма авторизации'))} />
-        {error && <Text text={String(t('Вы ввели неверный логин или пароль'))} theme={TextTheme.ERROR} />}
+        {error && (
+          <Text
+            text={String(t('Вы ввели неверный логин или пароль'))}
+            theme={TextTheme.ERROR}
+          />
+        )}
         <Input
           autofocus
           type="text"
@@ -96,7 +116,9 @@ const LoginFormComponent: FC<LoginFormProps> = (props: LoginFormProps) => {
         <Button
           theme={ButtonTheme.OUTLINE}
           className={cls.loginBtn}
-          onClick={() => { void onLoginClick(); }}
+          onClick={() => {
+            void onLoginClick();
+          }}
           disabled={isLoading}
         >
           {t('Войти')}

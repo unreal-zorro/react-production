@@ -9,7 +9,8 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:i18next/recommended',
-    'plugin:storybook/recommended'
+    'plugin:storybook/recommended',
+    'prettier'
   ],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -21,38 +22,38 @@ module.exports = {
       jsx: true
     }
   },
-  plugins: [
-    'react',
-    'i18next',
-    'react-hooks',
-    'super-plugin',
-    'unused-imports'
-  ],
+  plugins: ['react', 'i18next', 'react-hooks', 'super-plugin', 'unused-imports'],
   rules: {
     'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error',
     // 0 - off, 1 - warning, 2 - rule on; 2 - number of spaces
-    'react/jsx-indent': [2, 2],
-    'react/jsx-indent-props': [2, 2],
+    // 'react/jsx-indent': [2, 2],
+    // 'react/jsx-indent-props': [2, 2],
     'unused-imports/no-unused-imports': 'error',
-    indent: [2, 2, { SwitchCase: 1 }],
-    'react/jsx-filename-extension': [2, {
-      extensions: ['.js', '.jsx', '.tsx']
-    }],
+    // indent: [2, 2, { SwitchCase: 1 }],
+    'react/jsx-filename-extension': [
+      2,
+      {
+        extensions: ['.js', '.jsx', '.tsx']
+      }
+    ],
     'import/no-unresolved': 'off',
     semi: ['error', 'always'],
     '@typescript-eslint/semi': ['error', 'always'],
-    '@typescript-eslint/member-delimiter-style': ['error', {
-      multiline: {
-        delimiter: 'semi',
-        requireLast: true
-      },
-      singleline: {
-        delimiter: 'semi',
-        requireLast: false
-      },
-      multilineDetection: 'brackets'
-    }],
+    '@typescript-eslint/member-delimiter-style': [
+      'error',
+      {
+        multiline: {
+          delimiter: 'semi',
+          requireLast: true
+        },
+        singleline: {
+          delimiter: 'semi',
+          requireLast: false
+        },
+        multilineDetection: 'brackets'
+      }
+    ],
     'import/prefer-default-export': 'off',
     'no-unused-vars': 'warn',
     'react/require-default-props': 'off',
@@ -66,25 +67,20 @@ module.exports = {
     '@typescript-eslint/naming-convention': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
-    'i18next/no-literal-string': ['error', {
-      markupOnly: true,
-      ignoreAttributes: [
-        'as',
-        'role',
-        'data-testid',
-        'to',
-        'target',
-        'justify',
-        'align',
-        'border',
-        'direction',
-        'gap'
-      ]
-    }],
-    'max-len': ['error', {
-      ignoreComments: true,
-      code: 125
-    }],
+    'i18next/no-literal-string': [
+      'error',
+      {
+        markupOnly: true,
+        ignoreAttributes: ['as', 'role', 'data-testid', 'to', 'target', 'justify', 'align', 'border', 'direction', 'gap']
+      }
+    ],
+    'max-len': [
+      'error',
+      {
+        ignoreComments: true,
+        code: 125
+      }
+    ],
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
@@ -111,9 +107,13 @@ module.exports = {
         testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx']
       }
     ],
-    '@typescript-eslint/consistent-type-imports': ['error', {
-      disallowTypeAnnotations: false
-    }]
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      {
+        disallowTypeAnnotations: false
+      }
+    ],
+    'react/jsx-max-props-per-line': ['error', { maximum: 4 }]
   },
   overrides: [
     {

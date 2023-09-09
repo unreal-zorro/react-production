@@ -14,6 +14,7 @@ void i18n
     },
 
     resources: { ru: { translations: {} } }
-  }).then();
+  })
+  .then();
 
 export default i18n;

@@ -3,23 +3,12 @@ import { getUserAuthData } from '@/entities/User';
 import { type ThunkConfig } from '@/app/providers/StoreProvider';
 import { getArticleDetailsData } from '@/entities/Article';
 import { type Comment } from '@/entities/Comment';
-import {
-  fetchCommentsByArticleId
-} from '../../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { fetchCommentsByArticleId } from '../../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 
-export const addCommentFormArticle = createAsyncThunk<
-Comment,
-string,
-ThunkConfig<string>
->(
+export const addCommentFormArticle = createAsyncThunk<Comment, string, ThunkConfig<string>>(
   'articleDetails/addCommentFormArticle',
   async (text, thunkApi) => {
-    const {
-      extra,
-      dispatch,
-      rejectWithValue,
-      getState
-    } = thunkApi;
+    const { extra, dispatch, rejectWithValue, getState } = thunkApi;
 
     const userData = getUserAuthData(getState());
     const article = getArticleDetailsData(getState());

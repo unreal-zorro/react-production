@@ -6,11 +6,7 @@ import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 import { type Article, type ArticleSortField, type ArticleType } from '@/entities/Article';
 import { type SortOrder } from '@/shared/types/sort';
 
-export const initArticlesPage = createAsyncThunk<
-undefined,
-URLSearchParams,
-ThunkConfig<string>
->(
+export const initArticlesPage = createAsyncThunk<undefined, URLSearchParams, ThunkConfig<string>>(
   'articlesPage/initArticlesPage',
   async (searchParams, thunkApi) => {
     const { getState, dispatch } = thunkApi;

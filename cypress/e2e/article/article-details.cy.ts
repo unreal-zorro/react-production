@@ -3,7 +3,7 @@ let currentArticleId = '';
 describe('Пользователь заходит на страницу статьи', () => {
   beforeEach(() => {
     cy.login();
-    cy.createArticle().then(article => {
+    cy.createArticle().then((article) => {
       currentArticleId = article.id;
       cy.visit(`articles/${article.id}`);
     });

@@ -68,20 +68,16 @@ const articlesPageSlice = createSlice({
           articlesAdapter.removeAll(state);
         }
       })
-      .addCase(
-        fetchArticlesList.fulfilled, (
-          state,
-          action
-        ) => {
-          state.isLoading = false;
-          state.hasMore = action.payload.length >= state.limit;
+      .addCase(fetchArticlesList.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.hasMore = action.payload.length >= state.limit;
 
-          if (action.meta.arg.replace) {
-            articlesAdapter.setAll(state, action.payload);
-          } else {
-            articlesAdapter.addMany(state, action.payload);
-          }
-        })
+        if (action.meta.arg.replace) {
+          articlesAdapter.setAll(state, action.payload);
+        } else {
+          articlesAdapter.addMany(state, action.payload);
+        }
+      })
       .addCase(fetchArticlesList.rejected, (state, action) => {
         state.isLoading = false;
         state.error = String(action.payload);
@@ -89,7 +85,4 @@ const articlesPageSlice = createSlice({
   }
 });
 
-export const {
-  reducer: articlesPageReducer,
-  actions: articlesPageActions
-} = articlesPageSlice;
+export const { reducer: articlesPageReducer, actions: articlesPageActions } = articlesPageSlice;

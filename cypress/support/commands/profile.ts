@@ -19,7 +19,8 @@ export const resetProfile = (profileId: string) => {
       country: 'Russia',
       city: 'City',
       username: 'testuser',
-      avatar: 'https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-' +
+      avatar:
+        'https://img.freepik.com/premium-vector/young-smiling-man-adam-avatar-' +
         '3d-vector-people-character-illustration-cartoon-minimal-style_365941-687.jpg'
     }
   });

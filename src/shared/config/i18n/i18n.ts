@@ -20,6 +20,7 @@ void i18n
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json'
     }
-  }).then();
+  })
+  .then();
 
 export default i18n;
