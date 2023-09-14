@@ -1,4 +1,4 @@
-import type { FeaturesFlags } from './featuresFlags';
+import type { FeaturesFlags } from '../../types/featuresFlags';
 import { getFeatureFlag } from './setGetFeatures';
 
 interface ToggleFeaturesOptions<T> {
