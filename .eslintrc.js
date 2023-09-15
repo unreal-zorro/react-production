@@ -87,7 +87,8 @@ module.exports = {
           'align',
           'border',
           'direction',
-          'gap'
+          'gap',
+          'feature'
         ]
       }
     ],
@@ -156,6 +157,12 @@ module.exports = {
       files: ['cypress/**/*.ts', 'cypress/**/*.tsx', 'cypress.config.ts'],
       parserOptions: {
         project: './cypress/tsconfig.json'
+      }
+    },
+    {
+      files: ['scripts/**/*.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': ['off']
       }
     }
   ],

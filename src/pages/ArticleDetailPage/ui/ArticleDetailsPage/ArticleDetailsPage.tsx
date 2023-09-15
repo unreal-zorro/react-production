@@ -13,9 +13,7 @@ import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDet
 import { VStack } from '@/shared/ui/Stack';
 import { ArticleRecommendationList } from '@/features/articleRecommendationList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
-import { ArticleRating } from '@/features/articleRating';
 // import { toggleFeatures } from '@/shared/lib/features';
-// import { Card } from '@/shared/ui/Card';
 // import { useTranslation } from 'react-i18next';
 
 interface ArticleDetailsPageProps {
@@ -52,7 +50,11 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
           {/* {articleRatingCard} */}
-          <ArticleRating articleId={id} />
+          {/* <ToggleFeatures */}
+          {/*  feature="isArticleRatingEnabled" */}
+          {/*  on={<ArticleRating articleId={id} />} */}
+          {/*  off={<Card>{t('Оценка статей скоро появится!')}</Card>} */}
+          {/* /> */}
           <ArticleRecommendationList />
           <ArticleDetailsComments id={id} />
         </VStack>
