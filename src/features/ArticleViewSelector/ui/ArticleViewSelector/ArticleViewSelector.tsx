@@ -44,6 +44,8 @@ export const ArticleViewSelector: FC<ArticleViewSelectorProps> = memo(
           >
             <Icon
               Svg={viewType.icon}
+              width={24}
+              height={24}
               className={classNames('', {
                 [cls.notSelected]: viewType.view !== view
               })}
