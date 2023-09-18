@@ -13,7 +13,7 @@ import { type AsyncThunkAction } from '@reduxjs/toolkit';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text, TextTheme } from '@/shared/ui/Text';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import { useTranslation } from 'react-i18next';
 
 interface ArticleInfiniteListProps {

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { RatingCard } from '@/entities/Rating';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import {
   useGetProfileRating,
   useRateProfile
