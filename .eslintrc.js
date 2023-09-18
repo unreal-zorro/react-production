@@ -88,7 +88,9 @@ module.exports = {
           'border',
           'direction',
           'gap',
-          'feature'
+          'feature',
+          'color',
+          'variant'
         ]
       }
     ],
