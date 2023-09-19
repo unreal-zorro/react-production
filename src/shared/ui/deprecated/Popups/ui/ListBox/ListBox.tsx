@@ -6,7 +6,7 @@ import {
   type Mods
 } from '../../../../../lib/classNames/classNames';
 import { Button } from '../../../../deprecated/Button/Button';
-import { HStack } from '../../../Stack';
+import { HStack } from '../../../../redesigned/Stack';
 import { type DropdownDirection } from '../../../../../types/ui';
 import { mapDirectionClasses } from '../../styles/consts';
 import popupCls from '../../styles/popup.module.scss';

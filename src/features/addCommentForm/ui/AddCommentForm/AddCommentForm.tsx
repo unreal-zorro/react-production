@@ -19,7 +19,7 @@ import {
   type ReducersList
 } from '@/shared/lib/components/DynaminModuleLoader/DynamicModuleLoader';
 import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 export interface AddCommentFormProps {
   className?: string;

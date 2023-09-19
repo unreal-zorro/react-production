@@ -11,7 +11,7 @@ import { type Currency } from '@/entities/Currency';
 import { CurrencySelect } from '@/entities/Currency';
 import { type Country } from '@/entities/Country';
 import { CountrySelect } from '@/entities/Country';
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 interface ProfileCardProps {
   className?: string;

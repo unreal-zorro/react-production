@@ -2,8 +2,11 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './NotificationItem.module.scss';
 import { type FC, memo } from 'react';
 import { type Notifications } from '../../model/types/notifications';
-import { Card, CardTheme } from '@/shared/ui/deprecated/Card';
-import { Text } from '@/shared/ui/deprecated/Text';
+import { Card as CardDeprecated, CardTheme } from '@/shared/ui/deprecated/Card';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Card } from '@/shared/ui/redesigned/Card';
 
 interface NotificationItemProps {
   className?: string;
@@ -15,12 +18,24 @@ export const NotificationItem: FC<NotificationItemProps> = memo(
     const { className, item } = props;
 
     const content = (
-      <Card
-        className={classNames(cls.NotificationItem, {}, [className ?? ''])}
-        theme={CardTheme.OUTLINED}
-      >
-        <Text title={item.title} text={item.description} />
-      </Card>
+      <ToggleFeatures
+        feature={'isAppRedesigned'}
+        on={
+          <Card
+            className={classNames(cls.NotificationItem, {}, [className ?? ''])}
+          >
+            <Text title={item.title} text={item.description} />
+          </Card>
+        }
+        off={
+          <CardDeprecated
+            className={classNames(cls.NotificationItem, {}, [className ?? ''])}
+            theme={CardTheme.OUTLINED}
+          >
+            <TextDeprecated title={item.title} text={item.description} />
+          </CardDeprecated>
+        }
+      />
     );
 
     if (item.href) {
