@@ -4,7 +4,7 @@ import { Project, SyntaxKind } from 'ts-morph';
 const removedFeatureName = process.argv[2]; // example isArticleEnabled
 const featureState = process.argv[3]; // example off\on
 
-const toggleFunctionName = 'toggleFeature';
+const toggleFunctionName = 'toggleFeatures';
 const toggleComponentName = 'ToggleFeatures';
 
 if (!removedFeatureName) {
@@ -21,8 +21,8 @@ if (featureState !== 'on' && featureState !== 'off') {
 
 const project = new Project({});
 
-// project.addSourceFilesAtPaths('src/**/*.ts');
-project.addSourceFilesAtPaths('src/**/ArticleDetailsPage.tsx');
+project.addSourceFilesAtPaths('src/**/*.ts');
+project.addSourceFilesAtPaths('src/**/*.tsx');
 
 const files = project.getSourceFiles();
 
@@ -136,7 +136,7 @@ const replaceComponent = (node: Node) => {
 files.forEach((sourceFile) => {
   sourceFile.forEachDescendant((node) => {
     if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
-      replaceToggleFunction(node);
+      replaceToggleFunction(node); return;
     }
 
     if (node.isKind(SyntaxKind.JsxSelfClosingElement) && isToggleComponent(node)) {
