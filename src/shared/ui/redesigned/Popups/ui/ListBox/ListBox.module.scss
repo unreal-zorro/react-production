@@ -18,6 +18,10 @@
   padding: 10px 20px;
 }
 
+.selected {
+  background: var(--light-bg-redesigned);
+}
+
 .readonly {
   opacity: 0.7;
 }

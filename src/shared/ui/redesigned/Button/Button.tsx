@@ -2,7 +2,7 @@ import { classNames, type Mods } from '../../../lib/classNames/classNames';
 import cls from './Button.module.scss';
 import { type ButtonHTMLAttributes, memo, type ReactNode } from 'react';
 
-export type ButtonVariant = 'clear' | 'outline';
+export type ButtonVariant = 'clear' | 'outline' | 'filled';
 
 export type ButtonSize = 'm' | 'l' | 'xl';
 
