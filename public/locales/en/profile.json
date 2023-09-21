@@ -18,7 +18,12 @@
   "Данные не указаны": "Data not specified",
   "Имя и фамилия обязательны": "First and last name are required",
   "Некорректный возраст": "Incorrect age",
-  "Профиль не найден": "Profile not found"б
+  "Профиль не найден": "Profile not found",
   "Оцените профиль": "Rate the profile",
-  "Оставьте свой отзыв о профиле, это поможет улучшить качество": "Leave your feedback on the profile, this will help improve the quality"
+  "Оставьте свой отзыв о профиле, это поможет улучшить качество": "Leave your feedback on the profile, this will help improve the quality",
+  "Имя": "Name",
+  "Фамилия": "Lastname",
+  "Возраст": "Age",
+  "Имя пользователя": "Username",
+  "Ссылка на аватар": "Avatar link"
 }
