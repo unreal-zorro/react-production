@@ -55,9 +55,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
   return (
     <HStack gap="4">
       {label && (
-        <span
-          className={classNames('', mods, [className ?? ''])}
-        >{`${label}>`}</span>
+        <span className={classNames('', mods, [className ?? ''])}>{label}</span>
       )}
       <HListBox
         as="div"
