@@ -54,6 +54,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (
               >
                 <VStack gap="16" max>
                   <DetailsContainer />
+                  <ArticleRating articleId={id} />
                   <ArticleRecommendationList />
                   <ArticleDetailsComments id={id} />
                 </VStack>
