@@ -27,7 +27,7 @@ export const ArticleListItemRedesigned: FC<ArticleListItemProps> = memo(
 
     const userInfo = (
       <>
-        <Avatar size={32} src={article.user.avatar} />
+        <Avatar size={32} src={article.user.avatar} className={cls.avatar} />
         <Text bold text={article.user.username} />
       </>
     );
@@ -90,9 +90,9 @@ export const ArticleListItemRedesigned: FC<ArticleListItemProps> = memo(
         className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
         data-testid={'ArticleListItem'}
       >
-        <Card className={cls.card}>
+        <Card className={cls.card} border={'round'} padding={'0'}>
           <AppImage
-            fallback={<Skeleton width={200} height={200} />}
+            fallback={<Skeleton width={'100%'} height={200} />}
             src={article.img}
             alt={article.title}
             className={cls.img}
