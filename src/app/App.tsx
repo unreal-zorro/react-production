@@ -7,9 +7,10 @@ import { useSelector } from 'react-redux';
 import { getUserInited, initAuthData } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import type { AsyncThunkAction } from '@reduxjs/toolkit';
-import { PageLoader } from '@/widgets/PageLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
+import { PageLoader } from '@/widgets/PageLoader';
 const App: FC = () => {
   const dispatch = useAppDispatch();
   const inited = useSelector(getUserInited);
@@ -23,7 +24,17 @@ const App: FC = () => {
   }, [dispatch, inited]);
 
   if (!inited) {
-    return <PageLoader />;
+    return (
+      <ToggleFeatures
+        feature={'isAppRedesigned'}
+        on={
+          <div id="app" className={classNames('app_redesigned', {}, [])}>
+            <AppLoaderLayout />
+          </div>
+        }
+        off={<PageLoader />}
+      />
+    );
   }
 
   return (
