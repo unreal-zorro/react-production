@@ -18,7 +18,7 @@ export const DetailsContainer: FC<DetailsContainerProps> = memo(
         fullHeight
         className={className}
         padding={'24'}
-        border={'round'}
+        border={'partial'}
       >
         <ArticleDetails id={id} />
       </Card>

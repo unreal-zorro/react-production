@@ -71,7 +71,7 @@ export const ProfileCardRedesigned: FC<ProfileCardProps> = memo(
     const { t } = useTranslation('profile');
 
     return (
-      <Card padding={'24'} max className={className}>
+      <Card padding={'24'} border={'partial'} max className={className}>
         <VStack gap={'32'}>
           {data?.avatar && (
             <HStack justify="center" max>

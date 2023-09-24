@@ -3,6 +3,7 @@ import cls from './Button.module.scss';
 import { type ButtonHTMLAttributes, memo, type ReactNode } from 'react';
 
 export type ButtonVariant = 'clear' | 'outline' | 'filled';
+export type ButtonColor = 'normal' | 'success' | 'error';
 
 export type ButtonSize = 'm' | 'l' | 'xl';
 
@@ -32,6 +33,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * Увеличивает кнопку на всю свободную ширину
    */
   fullWidth?: boolean;
+  color?: ButtonColor;
   addonLeft?: ReactNode;
   addonRight?: ReactNode;
 }
@@ -45,6 +47,7 @@ export const Button = memo((props: ButtonProps) => {
     disabled = false,
     size = 'm',
     fullWidth,
+    color = 'normal',
     addonLeft,
     addonRight,
     ...otherProps
@@ -63,7 +66,8 @@ export const Button = memo((props: ButtonProps) => {
       className={classNames(cls.Button, mods, [
         className,
         cls[variant],
-        cls[size]
+        cls[size],
+        cls[color]
       ])}
       disabled={disabled}
       {...otherProps}
