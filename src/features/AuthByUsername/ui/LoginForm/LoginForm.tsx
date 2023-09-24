@@ -27,6 +27,7 @@ import { Text } from '@/shared/ui/redesigned/Text';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
 
 export interface LoginFormProps {
   className?: string;
@@ -46,6 +47,7 @@ const LoginFormComponent: FC<LoginFormProps> = (props: LoginFormProps) => {
   const password = useSelector(getLoginPassword);
   const isLoading = useSelector(getLoginIsLoading);
   const error = useSelector(getLoginError);
+  const forceUpdate = useForceUpdate();
 
   const onChangeUsername = useCallback(
     (value: string) => {
@@ -71,8 +73,9 @@ const LoginFormComponent: FC<LoginFormProps> = (props: LoginFormProps) => {
     );
     if (result.meta.requestStatus === 'fulfilled') {
       onSuccess();
+      forceUpdate();
     }
-  }, [onSuccess, dispatch, username, password]);
+  }, [dispatch, username, password, onSuccess, forceUpdate]);
 
   const onKeyDown = useCallback(
     (e: Event): void => {

@@ -15,10 +15,12 @@ const App: FC = () => {
   const inited = useSelector(getUserInited);
 
   useEffect(() => {
-    void dispatch(
-      initAuthData() as unknown as AsyncThunkAction<undefined, undefined, any>
-    );
-  }, [dispatch]);
+    if (!inited) {
+      void dispatch(
+        initAuthData() as unknown as AsyncThunkAction<undefined, undefined, any>
+      );
+    }
+  }, [dispatch, inited]);
 
   if (!inited) {
     return <PageLoader />;

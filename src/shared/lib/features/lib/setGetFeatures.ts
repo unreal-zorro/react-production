@@ -3,6 +3,10 @@ import type { FeatureFlags } from '../../../types/featureFlags';
 // ФИЧИ НЕ МЕНЯЮТСЯ В ХОДЕ СЕССИИ, ИХ НЕОБЯЗАТЕЛЬНО ДЕЛАТЬ РЕАКТИВНЫМИ!
 let featureFlags: FeatureFlags = {};
 
+// context
+// state
+// reload page
+// костыль
 export function setFeatureFlags(newFeaturesFlags: FeatureFlags) {
   if (newFeaturesFlags) {
     featureFlags = newFeaturesFlags;
