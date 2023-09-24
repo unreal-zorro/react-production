@@ -5,7 +5,7 @@ import { ThemeDecorator } from '../../../config/storybook/ThemeDecorator/ThemeDe
 import { Theme } from '../../../const/theme';
 
 const meta = {
-  title: 'shared/Modal',
+  title: 'shared/redesigned/Modal',
   component: Modal,
   argTypes: {}
 } satisfies Meta<typeof Modal>;

@@ -6,7 +6,7 @@ import { ThemeDecorator } from '../../../config/storybook/ThemeDecorator/ThemeDe
 import { Theme } from '../../../const/theme';
 
 const meta = {
-  title: 'shared/Text',
+  title: 'shared/redesigned/Text',
   component: Text,
   argTypes: {}
 } satisfies Meta<typeof Text>;

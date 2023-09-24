@@ -1,4 +1,5 @@
-import React, { type FC, Suspense, useEffect } from 'react';
+import type React from 'react';
+import { type FC, memo, Suspense, useEffect } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import AppRouter from './providers/router';
 import { Navbar } from '@/widgets/Navbar';
@@ -12,8 +13,9 @@ import { MainLayout } from '@/shared/layouts/MainLayout';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { PageLoader } from '@/widgets/PageLoader';
 import { useAppToolbar } from './lib/useAppToolbar';
+import { withTheme } from './providers/ThemeProvider';
 
-const App: FC = () => {
+const App: FC = memo(() => {
   const dispatch = useAppDispatch();
   const inited = useSelector(getUserInited);
   const toolbar = useAppToolbar();
@@ -68,6 +70,6 @@ const App: FC = () => {
       }
     />
   );
-};
+});
 
-export default App;
+export default withTheme(App);

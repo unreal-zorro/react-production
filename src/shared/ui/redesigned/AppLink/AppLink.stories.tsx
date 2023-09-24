@@ -5,7 +5,7 @@ import { Theme } from '../../../const/theme';
 import { AppLink } from './AppLink';
 
 const meta = {
-  title: 'shared/AppLink',
+  title: 'shared/redesigned/AppLink',
   component: AppLink,
   argTypes: {},
   args: {

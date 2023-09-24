@@ -4,7 +4,7 @@ import { Dropdown } from './Dropdown';
 import { Button } from '../../../../deprecated/Button/Button';
 
 const meta = {
-  title: 'shared/Dropdown',
+  title: 'shared/redesigned/Dropdown',
   component: Dropdown,
   argTypes: {}
 } satisfies Meta<typeof Dropdown>;

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Drawer } from './Drawer';
 
 const meta = {
-  title: 'shared/Drawer',
+  title: 'shared/redesigned/Drawer',
   component: Drawer,
   argTypes: {}
 } satisfies Meta<typeof Drawer>;

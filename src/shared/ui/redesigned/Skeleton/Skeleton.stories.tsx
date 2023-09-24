@@ -6,7 +6,7 @@ import { ThemeDecorator } from '../../../config/storybook/ThemeDecorator/ThemeDe
 import { Theme } from '../../../const/theme';
 
 const meta = {
-  title: 'shared/Skeleton',
+  title: 'shared/redesigned/Skeleton',
   component: Skeleton,
   argTypes: {}
 } satisfies Meta<typeof Skeleton>;

@@ -4,6 +4,7 @@ import { ProfileCard } from './ProfileCard';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import avatar from '@/shared/assets/tests/storybook.jpg';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 const meta = {
   title: 'entities/ProfileCard',
@@ -14,20 +15,27 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
-  args: {
-    data: {
-      username: 'admin',
-      age: 35,
-      country: Country.Russia,
-      lastname: 'LastName',
-      first: 'FirstName',
-      city: 'City',
-      currency: Currency.RUB,
-      avatar
-    }
+const primaryArgs = {
+  data: {
+    username: 'admin',
+    age: 35,
+    country: Country.Russia,
+    lastname: 'LastName',
+    first: 'FirstName',
+    city: 'City',
+    currency: Currency.RUB,
+    avatar
   }
 };
+
+export const Primary: Story = {
+  args: primaryArgs
+};
+
+export const PrimaryRedesigned: Story = {
+  args: primaryArgs
+};
+PrimaryRedesigned.decorators = [NewDesignDecorator];
 
 export const WithError: Story = {
   args: {
