@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { ViewSelectorContainer } from './ViewSelectorContainer';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 const meta = {
-  title: 'shared/ViewSelectorContainer',
+  title: 'pages/ArticlesPage/ViewSelectorContainer',
   component: ViewSelectorContainer,
   argTypes: {}
 } satisfies Meta<typeof ViewSelectorContainer>;
@@ -14,3 +15,4 @@ type Story = StoryObj<typeof meta>;
 export const Normal: Story = {
   args: {}
 };
+Normal.decorators = [StoreDecorator({})];

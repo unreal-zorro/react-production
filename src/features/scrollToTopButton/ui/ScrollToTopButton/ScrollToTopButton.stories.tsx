@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ScrollToTopButton } from './ScrollToTopButton';
 
 const meta = {
-  title: 'shared/ScrollToTopButton',
+  title: 'features/ScrollToTopButton',
   component: ScrollToTopButton,
   argTypes: {}
 } satisfies Meta<typeof ScrollToTopButton>;

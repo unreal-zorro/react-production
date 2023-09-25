@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { FiltersContainer } from './FiltersContainer';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 const meta = {
-  title: 'shared/FiltersContainer',
+  title: 'pages/ArticlesPage/FiltersContainer',
   component: FiltersContainer,
   argTypes: {}
 } satisfies Meta<typeof FiltersContainer>;
@@ -14,3 +15,4 @@ type Story = StoryObj<typeof meta>;
 export const Normal: Story = {
   args: {}
 };
+Normal.decorators = [StoreDecorator({})];
