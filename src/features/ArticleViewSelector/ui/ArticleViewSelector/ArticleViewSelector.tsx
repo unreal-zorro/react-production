@@ -65,7 +65,7 @@ export const ArticleViewSelector: FC<ArticleViewSelectorProps> = memo(
             <HStack gap="8">
               {viewTypes.map((viewType) => (
                 <Icon
-                  key={viewType.icon}
+                  key={viewType.view}
                   Svg={viewType.icon}
                   className={classNames('', {
                     [cls.notSelected]: viewType.view !== view
