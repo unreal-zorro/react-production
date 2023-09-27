@@ -75,7 +75,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (
               <ToggleFeatures
                 feature="isArticleRatingEnabled"
                 on={<ArticleRating articleId={id} />}
-                off={<Card>{t('Оценка статей скоро появится!')}</Card>}
+                off={<Card>{t('Оценка статей скоро появится')}</Card>}
               />
               <ArticleRecommendationList />
               <ArticleDetailsComments id={id} />

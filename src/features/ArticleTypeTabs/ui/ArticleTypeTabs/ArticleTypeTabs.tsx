@@ -18,7 +18,7 @@ interface ArticleTypeTabsProps {
 export const ArticleTypeTabs: FC<ArticleTypeTabsProps> = memo(
   (props: ArticleTypeTabsProps) => {
     const { className, value, onChangeType } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('articles-page');
 
     const typeTabs = useMemo<TabItem[]>(
       () => [

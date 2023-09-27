@@ -37,7 +37,7 @@ export const ArticlesFilters: FC<ArticlesFiltersProps> = memo(
       order,
       type
     } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('articles-page');
 
     return (
       <Card
