@@ -167,6 +167,12 @@ module.exports = {
       rules: {
         '@typescript-eslint/no-var-requires': ['off']
       }
+    },
+    {
+      files: ['json-server/**/*.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': ['off']
+      }
     }
   ],
   globals: {
