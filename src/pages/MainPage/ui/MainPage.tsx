@@ -8,6 +8,7 @@ const MainPage: FC = () => {
   return (
     <Page data-testid="MainPage">
       <div>{t('Главная страница')}</div>
+      <div>123</div>
     </Page>
   );
 };
