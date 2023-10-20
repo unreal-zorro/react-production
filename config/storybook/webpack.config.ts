@@ -27,6 +27,7 @@ export default ({ config }: { config: Configuration }): Configuration => {
 
   if (config.module) {
     config.module.rules = config?.module?.rules?.map(
+      // @ts-expect-error
       (rule: RuleSetRule | '...') => {
         // eslint-disable-next-line
         if (/svg/.test((rule as RuleSetRule).test as string)) {

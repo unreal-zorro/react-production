@@ -45,7 +45,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
   const optionsClasses = [mapDirectionClasses[direction], popupCls.menu];
 
   const selectedItem = useMemo(() => {
-    return items?.find((item) => item.value === value);
+    return items?.find((item) => item.value === value) as ListBoxItem<T>;
   }, [items, value]);
 
   const mods: Mods = {

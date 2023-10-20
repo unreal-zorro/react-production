@@ -34,7 +34,7 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
           {opt.content}
         </option>
       );
-    });
+    }) as JSX.Element[];
   }, [options]);
 
   const mods: Mods = {
