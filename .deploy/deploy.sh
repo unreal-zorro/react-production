@@ -1,4 +1,4 @@
-cd ~/production-project
+cd ~/project_name
 npm run build:prod
 
 rm -rf ~/../var/www/project_name/html
